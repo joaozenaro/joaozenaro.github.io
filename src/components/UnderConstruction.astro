@@ -3,16 +3,16 @@ import guy from "../assets/under-construction-guy.gif";
 import text from "../assets/under-construction-text.gif";
 ---
 
-<main>
-	<img id="background" src={guy.src} alt="" fetchpriority="high" />
-	<img id="background" src={text.src} alt="" fetchpriority="high" />
-</main>
+<section>
+	<img src={guy.src} fetchpriority="high" />
+	<img src={text.src} fetchpriority="high" />
+</section>
 
 <style>
-	main {
+	section {
+		flex: 1;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 100%;
 	}
 </style>
