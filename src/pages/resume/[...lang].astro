@@ -1,0 +1,56 @@
+---
+import MarkdownIt from "markdown-it";
+import MarkdownItDeflist from "markdown-it-deflist";
+import LinkAttributes from "markdown-it-link-attributes";
+import BaseLayout from "./_base.astro";
+
+import ptContent from "./_pt.md?raw";
+import enContent from "./_en.md?raw";
+
+export function getStaticPaths() {
+    return [{ params: { lang: undefined } }, { params: { lang: "pt" } }];
+}
+
+const { lang } = Astro.params;
+const langCode = lang || "en";
+
+import { loadEnv } from "vite";
+const env = loadEnv(import.meta.env.MODE, process.cwd(), "");
+
+let mdContent = langCode === "pt" ? ptContent : enContent;
+
+mdContent = mdContent.replace(/\{\{(\w+)\}\}/g, (match, p1) => {
+    return env[p1] || process.env[p1] || `@@${p1}@@`;
+});
+
+const md = new MarkdownIt({ html: true });
+md.use(MarkdownItDeflist);
+md.use(LinkAttributes, {
+    matcher: (link: string) => /^https?:\/\//.test(link),
+    attrs: {
+        target: "_blank",
+        rel: "noopener",
+    },
+});
+
+let renderedHtml = md.render(mdContent);
+
+const resolveDeflist = (html: string) => {
+    const dlReg = /<dl>([\s\S]*?)<\/dl>/g;
+    const dlList = html.match(dlReg);
+    if (dlList === null) return html;
+
+    let result = html;
+    for (const dl of dlList) {
+        const newDl = dl.replace(/<\/dd>\n<dt>/g, "</dd>\n</dl>\n<dl>\n<dt>");
+        result = result.replace(dl, newDl);
+    }
+    return result;
+};
+
+renderedHtml = resolveDeflist(renderedHtml);
+---
+
+<BaseLayout title={"Resume"} lang={langCode}>
+    <div class="resume-body" set:html={renderedHtml} />
+</BaseLayout>
