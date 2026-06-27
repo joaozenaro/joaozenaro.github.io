@@ -4,11 +4,13 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="João Zenaro" description="Software developer.">
 	<section class="landing">
-		<p class="eyebrow">backend / infra / web</p>
+		<p class="eyebrow">Welcome, I'm</p>
 		<h1>João M. Zenaro</h1>
 
 		<p class="description">
-			I'm a software developer based in Brazil, specializing in .NET and web technologies. You can read my <a href="/blog">blog</a> or check out my <a href="/tools">tools</a>.
+			I'm a software developer based in Brazil, specializing in .NET and
+			web technologies. You can read my <a href="/blog">blog</a> or check out
+			my <a href="/tools">tools</a>.
 		</p>
 	</section>
 </Layout>
@@ -27,8 +29,6 @@ import Layout from "../layouts/Layout.astro";
 
 	.eyebrow {
 		font-size: 0.875rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
 		opacity: 0.5;
 	}
 
@@ -47,14 +47,21 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	.description a {
-		color: inherit;
+		color: var(--accent);
 		text-decoration: underline;
-		text-decoration-color: rgb(255 255 255 / 0.3);
+		text-decoration-color: color-mix(
+			in srgb,
+			var(--accent) 30%,
+			transparent
+		);
 		text-underline-offset: 4px;
-		transition: text-decoration-color 150ms ease;
+		transition:
+			color 150ms ease,
+			text-decoration-color 150ms ease;
 	}
 
 	.description a:hover {
+		color: var(--fg);
 		text-decoration-color: rgb(255 255 255 / 0.8);
 	}
 </style>
