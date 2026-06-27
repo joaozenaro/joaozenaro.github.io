@@ -12,6 +12,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.0.2"
+    "@astrojs/markdown-remark": "^7.2.0",
+    "astro": "^7.0.2",
+    "markdown-it": "^14.1.1",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-link-attributes": "^4.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "remark-toc": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it-link-attributes": "^3.0.5",
+    "@types/node": "^26.0.1"
   }
 }

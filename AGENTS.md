@@ -3,7 +3,7 @@
 When starting the dev server, use background mode:
 
 ```
-astro dev --background
+astro dev --host --background
 ```
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.

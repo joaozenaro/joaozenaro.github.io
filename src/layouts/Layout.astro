@@ -1,23 +1,91 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Welcome</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import BaseLayout from "./BaseLayout.astro";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+
+const breadcrumbs = [
+	{ name: "home", href: "/" },
+	...segments.map((segment, index) => ({
+		name: segment,
+		href: "/" + segments.slice(0, index + 1).join("/"),
+	})),
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<header class="site-header">
+		<nav aria-label="Breadcrumb">
+			<ol class="breadcrumb">
+				<li>/</li>
+				{
+					breadcrumbs.map((crumb, index) => (
+						<li>
+							{index === breadcrumbs.length - 1 ? (
+								<span>{crumb.name}</span>
+							) : (
+								<a href={crumb.href}>{crumb.name}</a>
+							)}
+						</li>
+						<li>/</li>
+					))
+				}
+			</ol>
+		</nav>
+	</header>
+	<main>
+		<slot />
+	</main>
+	<footer>
+		<span>João Zenaro - software developer</span>
+	</footer>
+</BaseLayout>
+
+<style is:global>
+	.site-header {
+		height: 50px;
+		display: grid;
+		place-items: center;
+	}
+
+	.breadcrumb {
+		display: flex;
+		list-style: none;
+		column-gap: 8px;
+	}
+
+	footer {
+		height: 50px;
+		display: grid;
+		justify-content: end;
+		align-content: center;
+		padding-right: 20px;
+		margin-top: auto;
+	}
+
+	footer span {
+		opacity: .3;
+		font-size: small;
+	}
+
+	main {
+		flex: 1;
+		display: flex;
+	}
+
+	h1 {
+		font-family: var(--font-sans);
+		font-size: large;
+		font-weight: 500;
+	}
+
+	p, a {
+		color: var(--fg);
 	}
 </style>

@@ -7,5 +7,13 @@
 				"astro-build.astro-vscode"
 			]
 		}
-	}
+	},
+	"mounts": [
+		{
+			"source": "${localEnv:HOME}/.gemini",
+			"target": "/home/node/.gemini",
+			"type": "bind"
+		}
+	],
+	"postCreateCommand": "curl -fsSL https://antigravity.google/cli/install.sh | bash"
 }
