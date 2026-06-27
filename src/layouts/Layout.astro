@@ -15,7 +15,7 @@ const pageTitle = title === siteTitle ? siteTitle : `${title}`;
 const segments = Astro.url.pathname.split("/").filter(Boolean);
 
 const breadcrumbs = [
-	{ name: "Home", href: "/" },
+	{ name: "home", href: "/" },
 	...segments.map((segment, index) => ({
 		name: segment,
 		href: "/" + segments.slice(0, index + 1).join("/"),
@@ -68,7 +68,7 @@ const breadcrumbs = [
 	:root {
 		--bg: #242424;
 		--fg: #dbdbdb;
-		--accent: #1355b8;
+		--accent: #156acc;
 		--font-sans: "Inter", system-ui, sans-serif;
 	}
 
