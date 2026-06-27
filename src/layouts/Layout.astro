@@ -1,16 +1,12 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
 	title?: string;
 	description?: string;
 }
 
-const siteTitle = "João Zenaro";
-const { title = siteTitle, description = "Welcome to my personal page" } =
-	Astro.props;
-
-const pageTitle = title === siteTitle ? siteTitle : `${title}`;
+const { title, description } = Astro.props;
 
 const segments = Astro.url.pathname.split("/").filter(Boolean);
 
@@ -23,71 +19,35 @@ const breadcrumbs = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<title>{pageTitle}</title>
-		<ClientRouter />
-	</head>
-	<body>
-		<header class="site-header">
-			<nav aria-label="Breadcrumb">
-				<ol class="breadcrumb">
-					<li>/</li>
-					{
-						breadcrumbs.map((crumb, index) => (
-							<li>
-								{index === breadcrumbs.length - 1 ? (
-									<span>{crumb.name}</span>
-								) : (
-									<a href={crumb.href}>{crumb.name}</a>
-								)}
-							</li>
-							<li>/</li>
-						))
-					}
-				</ol>
-			</nav>
-		</header>
-		<main>
-			<slot />
-		</main>
-		<footer>
-			<span>João Zenaro - software developer</span>
-		</footer>
-	</body>
-</html>
+<BaseLayout title={title} description={description}>
+	<header class="site-header">
+		<nav aria-label="Breadcrumb">
+			<ol class="breadcrumb">
+				<li>/</li>
+				{
+					breadcrumbs.map((crumb, index) => (
+						<li>
+							{index === breadcrumbs.length - 1 ? (
+								<span>{crumb.name}</span>
+							) : (
+								<a href={crumb.href}>{crumb.name}</a>
+							)}
+						</li>
+						<li>/</li>
+					))
+				}
+			</ol>
+		</nav>
+	</header>
+	<main>
+		<slot />
+	</main>
+	<footer>
+		<span>João Zenaro - software developer</span>
+	</footer>
+</BaseLayout>
 
 <style is:global>
-	:root {
-		--bg: #242424;
-		--fg: #dbdbdb;
-		--accent: #156acc;
-		--font-sans: "Inter", system-ui, sans-serif;
-	}
-
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-
-	body {
-		min-height: 100vh;
-		background: var(--bg);
-		color: var(--fg);
-		font-family: var(--font-sans);
-		font-size: medium;
-		display: flex;
-		flex-direction: column;
-	}
-
 	.site-header {
 		height: 50px;
 		display: grid;
@@ -106,7 +66,7 @@ const breadcrumbs = [
 		justify-content: end;
 		align-content: center;
 		padding-right: 20px;
-  		margin-top: auto;
+		margin-top: auto;
 	}
 
 	footer span {
@@ -121,7 +81,7 @@ const breadcrumbs = [
 
 	h1 {
 		font-family: var(--font-sans);
-		font-size: 1.2rem;
+		font-size: large;
 		font-weight: 500;
 	}
 
