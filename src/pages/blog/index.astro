@@ -18,30 +18,36 @@ const formatDate = (date: Date) =>
 	<section>
 		<div class="post-list-container">
 			<h1 class="list-title">Archive</h1>
-			<ol class="post-list" aria-label="Blog posts">
-				{
-					posts.map((post) => {
-						return (
-							<a class="post-card" href={`/blog/${post.id}/`}>
-								<li transition:name={`post-card-${post.id}`}>
-									<h2 class="post-title">
-										{post.data.title}
-									</h2>
-									<time
-										class="post-date"
-										datetime={post.data.date.toISOString()}
-									>
-										{formatDate(post.data.date)}
-									</time>
-									<p class="post-description">
-										{post.data.description}
-									</p>
-								</li>
-							</a>
-						);
-					})
-				}
-			</ol>
+			{
+				posts.length === 0 ? (
+					<p class="no-posts">No posts yet. Stay tuned!</p>
+				) : (
+					<ol class="post-list" aria-label="Blog posts">
+						{
+							posts.map((post) => {
+								return (
+									<a class="post-card" href={`/blog/${post.id}/`}>
+										<li transition:name={`post-card-${post.id}`}>
+											<h2 class="post-title">
+												{post.data.title}
+											</h2>
+											<time
+												class="post-date"
+												datetime={post.data.date.toISOString()}
+											>
+												{formatDate(post.data.date)}
+											</time>
+											<p class="post-description">
+												{post.data.description}
+											</p>
+										</li>
+									</a>
+								);
+							})
+						}
+					</ol>
+				)
+			}
 		</div>
 	</section>
 </Layout>
@@ -124,5 +130,12 @@ const formatDate = (date: Date) =>
 		line-height: 1.5;
 		color: rgba(219, 219, 219, 0.85);
 		margin: 0;
+	}
+
+	.no-posts {
+		font-size: 1.1rem;
+		opacity: 0.6;
+		margin-top: 1rem;
+		font-style: italic;
 	}
 </style>

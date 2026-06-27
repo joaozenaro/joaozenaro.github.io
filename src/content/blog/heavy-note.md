@@ -2,6 +2,7 @@
 title: "Very long note name name name name name name"
 description: "A comprehensive guide on styling Astro posts, code highlight, blockquotes, and Markdown table components."
 date: 2026-06-18
+draft: true
 ---
 
 ## Intro
