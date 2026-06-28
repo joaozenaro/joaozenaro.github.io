@@ -75,6 +75,15 @@ const { title = "Resume", lang = "en" } = Astro.props;
         position: relative;
     }
 
+    .language-switch {
+        display: block;
+        width: var(--page-width);
+        margin: 0 auto 12px;
+        color: #374151;
+        font-size: 12px;
+        text-align: right;
+    }
+
     .resume-body p,
     .resume-body ul,
     .resume-body ol,
@@ -203,6 +212,10 @@ const { title = "Resume", lang = "en" } = Astro.props;
     }
 
     @media print {
+        .language-switch {
+            display: none !important;
+        }
+
         body {
             background-color: white !important;
             padding: 0 !important;
