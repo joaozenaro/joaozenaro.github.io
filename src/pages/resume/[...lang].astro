@@ -13,6 +13,10 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const langCode = lang || "en";
+const alternateResume =
+    langCode === "pt"
+        ? { href: "/resume", label: "English version" }
+        : { href: "/resume/pt", label: "Versão em português" };
 
 import { loadEnv } from "vite";
 const env = loadEnv(import.meta.env.MODE, process.cwd(), "");
@@ -52,5 +56,8 @@ renderedHtml = resolveDeflist(renderedHtml);
 ---
 
 <BaseLayout title={"Resume"} lang={langCode}>
+    <a class="language-switch" href={alternateResume.href}>
+        {alternateResume.label}
+    </a>
     <div class="resume-body" set:html={renderedHtml} />
 </BaseLayout>
