@@ -1,0 +1,39 @@
+<div id="empty-state">
+    <p>Paste an image to get started</p>
+    <div>
+        <kbd>&#8984;V</kbd>
+        <span>or</span>
+        <kbd>Ctrl+V</kbd>
+    </div>
+</div>
+
+<style>
+    #empty-state {
+		display: grid;
+		place-items: center;
+		gap: 0.875rem;
+		color: rgba(255, 255, 255, 0.2);
+		pointer-events: none;
+		user-select: none;
+		font-size: 0.9375rem;
+
+		div {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.8125rem;
+		}
+	}
+
+	kbd {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.1875rem 0.4375rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 4px;
+		background: rgba(255, 255, 255, 0.03);
+		font-family: var(--font-sans);
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.3);
+	}
+</style>
