@@ -10,9 +10,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "check": "npx astro check"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@astrojs/markdown-remark": "^7.2.0",
     "astro": "^7.0.2",
     "lucide-astro": "^0.556.0",
@@ -21,7 +23,8 @@
     "markdown-it-link-attributes": "^4.0.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "remark-toc": "^9.0.0"
+    "remark-toc": "^9.0.0",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
