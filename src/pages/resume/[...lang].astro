@@ -1,61 +1,61 @@
 ---
-import MarkdownIt from "markdown-it";
-import MarkdownItDeflist from "markdown-it-deflist";
-import LinkAttributes from "markdown-it-link-attributes";
-import BaseLayout from "./_base.astro";
+import MarkdownIt from 'markdown-it'
+import MarkdownItDeflist from 'markdown-it-deflist'
+import LinkAttributes from 'markdown-it-link-attributes'
+import BaseLayout from './_base.astro'
 
-import ptContent from "./_pt.md?raw";
-import enContent from "./_en.md?raw";
+import ptContent from './_pt.md?raw'
+import enContent from './_en.md?raw'
 
 export function getStaticPaths() {
-    return [{ params: { lang: undefined } }, { params: { lang: "pt" } }];
+    return [{ params: { lang: undefined } }, { params: { lang: 'pt' } }]
 }
 
-const { lang } = Astro.params;
-const langCode = lang || "en";
+const { lang } = Astro.params
+const langCode = lang || 'en'
 const alternateResume =
-    langCode === "pt"
-        ? { href: "/resume", label: "English version" }
-        : { href: "/resume/pt", label: "Versão em português" };
+    langCode === 'pt'
+        ? { href: '/resume', label: 'English version' }
+        : { href: '/resume/pt', label: 'Versão em português' }
 
-import { loadEnv } from "vite";
-const env = loadEnv(import.meta.env.MODE, process.cwd(), "");
+import { loadEnv } from 'vite'
+const env = loadEnv(import.meta.env.MODE, process.cwd(), '')
 
-let mdContent = langCode === "pt" ? ptContent : enContent;
+let mdContent = langCode === 'pt' ? ptContent : enContent
 
 mdContent = mdContent.replace(/\{\{(\w+)\}\}/g, (_, p1) => {
-    return env[p1] || process.env[p1] || `@@${p1}@@`;
-});
+    return env[p1] || process.env[p1] || `@@${p1}@@`
+})
 
-const md = new MarkdownIt({ html: true });
-md.use(MarkdownItDeflist);
+const md = new MarkdownIt({ html: true })
+md.use(MarkdownItDeflist)
 md.use(LinkAttributes, {
     matcher: (link: string) => /^https?:\/\//.test(link),
     attrs: {
-        target: "_blank",
-        rel: "noopener",
+        target: '_blank',
+        rel: 'noopener',
     },
-});
+})
 
-let renderedHtml = md.render(mdContent);
+let renderedHtml = md.render(mdContent)
 
 const resolveDeflist = (html: string) => {
-    const dlReg = /<dl>([\s\S]*?)<\/dl>/g;
-    const dlList = html.match(dlReg);
-    if (dlList === null) return html;
+    const dlReg = /<dl>([\s\S]*?)<\/dl>/g
+    const dlList = html.match(dlReg)
+    if (dlList === null) return html
 
-    let result = html;
+    let result = html
     for (const dl of dlList) {
-        const newDl = dl.replace(/<\/dd>\n<dt>/g, "</dd>\n</dl>\n<dl>\n<dt>");
-        result = result.replace(dl, newDl);
+        const newDl = dl.replace(/<\/dd>\n<dt>/g, '</dd>\n</dl>\n<dl>\n<dt>')
+        result = result.replace(dl, newDl)
     }
-    return result;
-};
+    return result
+}
 
-renderedHtml = resolveDeflist(renderedHtml);
+renderedHtml = resolveDeflist(renderedHtml)
 ---
 
-<BaseLayout title={"Resume"} lang={langCode}>
+<BaseLayout title={'Resume'} lang={langCode}>
     <a class="language-switch" href={alternateResume.href}>
         {alternateResume.label}
     </a>

@@ -1,6 +1,6 @@
 ---
-title: "Very long note name name name name name name"
-description: "A comprehensive guide on styling Astro posts, code highlight, blockquotes, and Markdown table components."
+title: 'Very long note name name name name name name'
+description: 'A comprehensive guide on styling Astro posts, code highlight, blockquotes, and Markdown table components.'
 date: 2026-06-18
 draft: true
 ---
@@ -36,9 +36,8 @@ $$
 
 Nulla animi blanditiis nemo, provident officiis natus ut quidem tempora ipsa, sed, ducimus eaque officia consectetur harum. Corporis, laboriosam! Culpa, repellat. Obcaecati sunt ullam itaque quaerat. Reprehenderit iusto voluptatem atque!
 
-
 Nulla animi blanditiis nemo, provident officiis natus ut quidem tempora ipsa, sed, ducimus eaque officia consectetur harum. Corporis, laboriosam! Culpa, repellat. Obcaecati sunt ullam itaque quaerat. Reprehenderit iusto voluptatem atque!
 
-Table|Column
--|-
-1|1
+| Table | Column |
+| ----- | ------ |
+| 1     | 1      |
