@@ -38,7 +38,9 @@ const pageTitle = title === siteTitle ? siteTitle : `${title}`;
 		--font-sans: "Inter", system-ui, sans-serif;
 	}
 
-	* {
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
