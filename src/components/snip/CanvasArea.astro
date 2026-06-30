@@ -1,57 +1,53 @@
 <div id="edit-area">
     <div id="canvas-wrap">
-        <img
-            id="source-image"
-            alt="Pasted image"
-            draggable="false"
-        />
+        <img id="source-image" alt="Pasted image" draggable="false" />
         <canvas id="edit-canvas"></canvas>
     </div>
 </div>
 
 <style>
     #edit-area {
-		display: none;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		padding: 1.5rem;
-		box-sizing: border-box;
-		overflow: auto;
-	}
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        overflow: auto;
+    }
 
-	#canvas-wrap {
-		position: relative;
-		display: inline-block;
-		border-radius: 8px;
-		overflow: hidden;
-	}
+    #canvas-wrap {
+        position: relative;
+        display: inline-block;
+        border-radius: 8px;
+        overflow: hidden;
+    }
 
-	#source-image {
-		display: block;
-		max-width: 100%;
-		max-height: calc(100vh - 120px);
-		width: auto;
-		height: auto;
-		user-select: none;
-		pointer-events: none;
-	}
+    #source-image {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 120px);
+        width: auto;
+        height: auto;
+        user-select: none;
+        pointer-events: none;
+    }
 
-	#edit-canvas {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: block;
+    #edit-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
 
-		&.tool-select {
-			cursor: default;
-		}
+        &.tool-select {
+            cursor: default;
+        }
 
-		&.tool-draw {
-			cursor: crosshair;
-		}
-	}
+        &.tool-draw {
+            cursor: crosshair;
+        }
+    }
 </style>

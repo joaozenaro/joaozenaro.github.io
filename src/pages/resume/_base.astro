@@ -1,10 +1,10 @@
 ---
 export interface Props {
-    title?: string;
-    lang?: string;
+    title?: string
+    lang?: string
 }
 
-const { title = "Resume", lang = "en" } = Astro.props;
+const { title = 'Resume', lang = 'en' } = Astro.props
 ---
 
 <!doctype html>
@@ -18,20 +18,20 @@ const { title = "Resume", lang = "en" } = Astro.props;
         <slot />
 
         <script is:inline>
-            const urlParams = new URLSearchParams(window.location.search);
-            const phone = urlParams.get("phone");
-            const phoneUrl = urlParams.get("phone_url") || phone;
+            const urlParams = new URLSearchParams(window.location.search)
+            const phone = urlParams.get('phone')
+            const phoneUrl = urlParams.get('phone_url') || phone
 
             if (phone) {
                 document.body.innerHTML = document.body.innerHTML
                     .replace(/@@PHONE@@/g, phone)
-                    .replace(/@@PHONE_URL@@/g, phoneUrl);
+                    .replace(/@@PHONE_URL@@/g, phoneUrl)
             } else {
-                document.querySelectorAll("dd, li, p").forEach((el) => {
-                    if (el.innerHTML.includes("@@PHONE@@")) {
-                        el.remove();
+                document.querySelectorAll('dd, li, p').forEach((el) => {
+                    if (el.innerHTML.includes('@@PHONE@@')) {
+                        el.remove()
                     }
-                });
+                })
             }
         </script>
     </body>

@@ -1,28 +1,36 @@
 ---
-import { MousePointer2, Square, MoveUpRight, Grid3X3, Undo2, Redo, Copy } from "lucide-astro";
+import {
+    MousePointer2,
+    Square,
+    MoveUpRight,
+    Grid3X3,
+    Undo2,
+    Redo,
+    Copy,
+} from 'lucide-astro'
 
-const { attr, name, label, tooltip, pressed } = Astro.props;
+const { attr, name, label, tooltip, pressed } = Astro.props
 
 const icons = {
-  select: MousePointer2,
-  rect: Square,
-  arrow: MoveUpRight,
-  pixelate: Grid3X3,
-  undo: Undo2,
-  redo: Redo,
-  copy: Copy
-} as const;
+    select: MousePointer2,
+    rect: Square,
+    arrow: MoveUpRight,
+    pixelate: Grid3X3,
+    undo: Undo2,
+    redo: Redo,
+    copy: Copy,
+} as const
 
-type Tool = keyof typeof icons;
+type Tool = keyof typeof icons
 
-const ToolIcon = icons[attr as Tool] ?? MousePointer2;
+const ToolIcon = icons[attr as Tool] ?? MousePointer2
 ---
 
 <button
     aria-pressed={pressed}
     tabindex="-1"
     data-tool={attr}
-    data-tooltip={tooltip || "Not implemented yet"}
+    data-tooltip={tooltip || 'Not implemented yet'}
     aria-label={label}
 >
     <ToolIcon size={15} />
@@ -56,20 +64,20 @@ const ToolIcon = icons[attr as Tool] ?? MousePointer2;
             justify-content: center;
         }
 
-        &:hover:not([aria-disabled="true"]) {
+        &:hover:not([aria-disabled='true']) {
             background: rgba(255, 255, 255, 0.07);
             color: rgba(255, 255, 255, 0.85);
         }
 
         /* Active / selected tool */
-        &[aria-pressed="true"],
+        &[aria-pressed='true'],
         &.active {
             background: rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.9);
         }
 
         /* Disabled state */
-        &[aria-disabled="true"] {
+        &[aria-disabled='true'] {
             opacity: 0.3;
             cursor: not-allowed;
             pointer-events: none;

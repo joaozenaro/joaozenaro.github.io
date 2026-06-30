@@ -1,399 +1,399 @@
 ---
-import { getCollection, render } from "astro:content";
-import "katex/dist/katex.min.css";
-import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from 'astro:content'
+import 'katex/dist/katex.min.css'
+import Layout from '../../layouts/Layout.astro'
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog", ({ data }) => !data.draft);
+    const posts = await getCollection('blog', ({ data }) => !data.draft)
 
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: { post },
-	}));
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }))
 }
 
-const { post } = Astro.props;
-const { Content, headings } = await render(post);
+const { post } = Astro.props
+const { Content, headings } = await render(post)
 const formatDate = (date: Date) =>
-	new Intl.DateTimeFormat("en", {
-		month: "long",
-		day: "2-digit",
-		year: "numeric",
-	}).format(date);
+    new Intl.DateTimeFormat('en', {
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric',
+    }).format(date)
 
-const tocHeadings = headings.filter((h) => h.depth > 1 && h.depth <= 3);
+const tocHeadings = headings.filter((h) => h.depth > 1 && h.depth <= 3)
 ---
 
 <Layout title={post.data.title} description={post.data.title}>
-	<div class="post-container">
-		<article class="post" transition:name={`post-card-${post.id}`}>
-			<header class="post-header">
-				<h1>
-					{post.data.title}
-				</h1>
-				<time datetime={post.data.date.toISOString()}>
-					{formatDate(post.data.date)}
-				</time>
-			</header>
-			<div class="content">
-				<Content />
-			</div>
-			<footer class="post-footer">
-				<a href="/blog" class="back-link"> Go back </a>
-			</footer>
-		</article>
+    <div class="post-container">
+        <article class="post" transition:name={`post-card-${post.id}`}>
+            <header class="post-header">
+                <h1>
+                    {post.data.title}
+                </h1>
+                <time datetime={post.data.date.toISOString()}>
+                    {formatDate(post.data.date)}
+                </time>
+            </header>
+            <div class="content">
+                <Content />
+            </div>
+            <footer class="post-footer">
+                <a href="/blog" class="back-link"> Go back </a>
+            </footer>
+        </article>
 
-		{
-			tocHeadings.length > 0 && (
-				<aside class="sidebar">
-					<nav class="toc" aria-label="Table of contents">
-						<span class="toc-title">On this page</span>
-						<ul>
-							{tocHeadings.map((heading) => (
-								<li class={`depth-${heading.depth}`}>
-									<a
-										href={`#${heading.slug}`}
-										class="toc-link"
-									>
-										{heading.text}
-									</a>
-								</li>
-							))}
-						</ul>
-					</nav>
-				</aside>
-			)
-		}
-	</div>
+        {
+            tocHeadings.length > 0 && (
+                <aside class="sidebar">
+                    <nav class="toc" aria-label="Table of contents">
+                        <span class="toc-title">On this page</span>
+                        <ul>
+                            {tocHeadings.map((heading) => (
+                                <li class={`depth-${heading.depth}`}>
+                                    <a
+                                        href={`#${heading.slug}`}
+                                        class="toc-link"
+                                    >
+                                        {heading.text}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </aside>
+            )
+        }
+    </div>
 </Layout>
 
 <script>
-	function setupScrollSpy() {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						const id = entry.target.id;
-						if (!id) return;
+    function setupScrollSpy() {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id
+                        if (!id) return
 
-						// Remove active class from all links, add to the current one
-						document
-							.querySelectorAll(".toc-link")
-							.forEach((link) => {
-								link.classList.remove("active");
-							});
+                        // Remove active class from all links, add to the current one
+                        document
+                            .querySelectorAll('.toc-link')
+                            .forEach((link) => {
+                                link.classList.remove('active')
+                            })
 
-						const activeLink = document.querySelector(
-							`.toc-link[href="#${id}"]`,
-						);
-						if (activeLink) {
-							activeLink.classList.add("active");
-						}
-					}
-				});
-			},
-			{ rootMargin: "0px 0px -50% 0px" },
-		);
+                        const activeLink = document.querySelector(
+                            `.toc-link[href="#${id}"]`
+                        )
+                        if (activeLink) {
+                            activeLink.classList.add('active')
+                        }
+                    }
+                })
+            },
+            { rootMargin: '0px 0px -50% 0px' }
+        )
 
-		// Observe all markdown headings
-		document
-			.querySelectorAll("h1, h2, h3, h4")
-			.forEach((heading) => observer.observe(heading));
-	}
+        // Observe all markdown headings
+        document
+            .querySelectorAll('h1, h2, h3, h4')
+            .forEach((heading) => observer.observe(heading))
+    }
 
-	document.addEventListener("astro:page-load", setupScrollSpy);
+    document.addEventListener('astro:page-load', setupScrollSpy)
 </script>
 
 <style>
-	.post-container {
-		width: 100%;
-		max-width: 720px;
-		margin: 0 auto;
-		padding: 3rem 1.5rem;
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 2.5rem;
-	}
+    .post-container {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
 
-	@media (min-width: 1200px) {
-		.post-container {
-			grid-template-columns: 240px minmax(0, 720px) 240px;
-			max-width: 1280px;
-			gap: 2rem;
-		}
+    @media (min-width: 1200px) {
+        .post-container {
+            grid-template-columns: 240px minmax(0, 720px) 240px;
+            max-width: 1280px;
+            gap: 2rem;
+        }
 
-		.post {
-			grid-column: 2;
-		}
-	}
+        .post {
+            grid-column: 2;
+        }
+    }
 
-	.post {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		min-width: 0;
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		border-radius: 6px;
-		padding: 2rem;
-		box-sizing: border-box;
-	}
+    .post {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-width: 0;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
 
-	.post-header {
-		margin-bottom: 2.5rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		padding-bottom: 1.5rem;
-	}
+    .post-header {
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1.5rem;
+    }
 
-	.post-header h1 {
-		font-size: clamp(1.75rem, 5vw, 2.5rem);
-		line-height: 1.15;
-		font-weight: 700;
-		color: var(--fg);
-		margin-bottom: 0.5rem;
-		letter-spacing: -0.02em;
-	}
+    .post-header h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--fg);
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+    }
 
-	.post-header time {
-		font-size: 0.875rem;
-		opacity: 0.5;
-		letter-spacing: 0.05em;
-	}
+    .post-header time {
+        font-size: 0.875rem;
+        opacity: 0.5;
+        letter-spacing: 0.05em;
+    }
 
-	.sidebar {
-		display: none;
-	}
+    .sidebar {
+        display: none;
+    }
 
-	@media (min-width: 1200px) {
-		.sidebar {
-			grid-column: 3;
-			display: block;
-			position: sticky;
-			top: 6rem;
-			align-self: start;
-			max-height: calc(100vh - 8rem);
-			overflow-y: auto;
-		}
-	}
+    @media (min-width: 1200px) {
+        .sidebar {
+            grid-column: 3;
+            display: block;
+            position: sticky;
+            top: 6rem;
+            align-self: start;
+            max-height: calc(100vh - 8rem);
+            overflow-y: auto;
+        }
+    }
 
-	.toc {
-		padding: 0.5rem 0;
-	}
+    .toc {
+        padding: 0.5rem 0;
+    }
 
-	.toc-title {
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		opacity: 0.5;
-		display: block;
-		margin-bottom: 0.75rem;
-		font-weight: 600;
-	}
+    .toc-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.5;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+    }
 
-	.toc ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 
-	.toc li {
-		font-size: 0.95rem;
-		line-height: 1.4;
-	}
+    .toc li {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
 
-	.toc li.depth-3 {
-		padding-left: 1.25rem;
-	}
+    .toc li.depth-3 {
+        padding-left: 1.25rem;
+    }
 
-	.toc-link {
-		text-decoration: none;
-		color: var(--fg);
-		opacity: 0.5;
-		transition:
-			opacity 150ms ease,
-			color 150ms ease;
-		display: inline-block;
-		border-left: 3px solid transparent;
-		padding-left: 8px;
-	}
+    .toc-link {
+        text-decoration: none;
+        color: var(--fg);
+        opacity: 0.5;
+        transition:
+            opacity 150ms ease,
+            color 150ms ease;
+        display: inline-block;
+        border-left: 3px solid transparent;
+        padding-left: 8px;
+    }
 
-	.toc-link:hover {
-		opacity: 1;
-		color: var(--fg);
-	}
+    .toc-link:hover {
+        opacity: 1;
+        color: var(--fg);
+    }
 
-	.toc-link.active {
-		font-weight: bold;
-		color: var(--accent);
-		border-left: 3px solid var(--accent);
-		padding-left: 8px;
-		opacity: 1;
-	}
+    .toc-link.active {
+        font-weight: bold;
+        color: var(--accent);
+        border-left: 3px solid var(--accent);
+        padding-left: 8px;
+        opacity: 1;
+    }
 
-	.content {
-		flex: 1;
-		font-size: 1.05rem;
-		line-height: 1.75;
-		color: rgba(219, 219, 219, 0.9);
-	}
+    .content {
+        flex: 1;
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: rgba(219, 219, 219, 0.9);
+    }
 
-	/* Paragraphs */
-	.content :global(p) {
-		margin-bottom: 1.5rem;
-	}
+    /* Paragraphs */
+    .content :global(p) {
+        margin-bottom: 1.5rem;
+    }
 
-	/* Headings in markdown content */
-	.content :global(:is(h2, h3, h4, h5, h6)) {
-		color: var(--fg);
-		font-weight: 600;
-		line-height: 1.3;
-		margin-top: 2.5rem;
-		margin-bottom: 1rem;
-	}
+    /* Headings in markdown content */
+    .content :global(:is(h2, h3, h4, h5, h6)) {
+        color: var(--fg);
+        font-weight: 600;
+        line-height: 1.3;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
 
-	.content :global(:is(h2, h3, h4, h5, h6):first-child) {
-		margin-top: 0;
-	}
+    .content :global(:is(h2, h3, h4, h5, h6):first-child) {
+        margin-top: 0;
+    }
 
-	.content :global(h2) {
-		font-size: 1.5rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-		padding-bottom: 0.4rem;
-	}
+    .content :global(h2) {
+        font-size: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.4rem;
+    }
 
-	.content :global(h3) {
-		font-size: 1.25rem;
-	}
+    .content :global(h3) {
+        font-size: 1.25rem;
+    }
 
-	.content :global(h4) {
-		font-size: 1.1rem;
-	}
+    .content :global(h4) {
+        font-size: 1.1rem;
+    }
 
-	/* Code and Pre blocks */
-	.content :global(pre) {
-		padding: 1.25rem;
-		border-radius: 6px;
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		overflow-x: auto;
-		margin: 2rem 0;
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
+    /* Code and Pre blocks */
+    .content :global(pre) {
+        padding: 1.25rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        overflow-x: auto;
+        margin: 2rem 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
 
-	.content :global(:not(pre) > code) {
-		font-size: 0.9em;
-		background: rgba(255, 255, 255, 0.08);
-		padding: 0.2rem 0.4rem;
-		border-radius: 4px;
-		color: #e5c07b;
-		word-break: break-word;
-	}
+    .content :global(:not(pre) > code) {
+        font-size: 0.9em;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        color: #e5c07b;
+        word-break: break-word;
+    }
 
-	/* Lists */
-	.content :global(:is(ul, ol)) {
-		margin-top: 0;
-		margin-bottom: 1.5rem;
-		padding-left: 1.5rem;
-	}
+    /* Lists */
+    .content :global(:is(ul, ol)) {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
 
-	.content :global(li) {
-		margin-bottom: 0.5rem;
-	}
+    .content :global(li) {
+        margin-bottom: 0.5rem;
+    }
 
-	.content :global(ul) {
-		list-style-type: square;
-	}
+    .content :global(ul) {
+        list-style-type: square;
+    }
 
-	.content :global(ol) {
-		list-style-type: decimal;
-	}
+    .content :global(ol) {
+        list-style-type: decimal;
+    }
 
-	/* Images */
-	.content :global(img) {
-		max-width: 100%;
-		height: auto;
-		display: block;
-		margin: 2.5rem auto;
-		border-radius: 6px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-	}
+    /* Images */
+    .content :global(img) {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 2.5rem auto;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-	/* Blockquotes */
-	.content :global(blockquote) {
-		margin: 2rem 0;
-		padding: 0.75rem 1.25rem;
-		border-left: 3px solid var(--accent);
-		background: rgba(255, 255, 255, 0.03);
-		color: rgba(219, 219, 219, 0.85);
-		font-style: italic;
-	}
+    /* Blockquotes */
+    .content :global(blockquote) {
+        margin: 2rem 0;
+        padding: 0.75rem 1.25rem;
+        border-left: 3px solid var(--accent);
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(219, 219, 219, 0.85);
+        font-style: italic;
+    }
 
-	.content :global(blockquote p) {
-		margin-bottom: 0;
-	}
+    .content :global(blockquote p) {
+        margin-bottom: 0;
+    }
 
-	/* Tables */
-	.content :global(table) {
-		width: 100%;
-		border-collapse: collapse;
-		margin: 2rem 0;
-		font-size: 0.95rem;
-	}
+    /* Tables */
+    .content :global(table) {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 0.95rem;
+    }
 
-	.content :global(th),
-	.content :global(td) {
-		padding: 0.75rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		text-align: left;
-	}
+    .content :global(th),
+    .content :global(td) {
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
 
-	.content :global(th) {
-		font-weight: 600;
-		color: var(--fg);
-		border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-	}
+    .content :global(th) {
+        font-weight: 600;
+        color: var(--fg);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
 
-	.content :global(tr:hover td) {
-		background: rgba(255, 255, 255, 0.02);
-	}
+    .content :global(tr:hover td) {
+        background: rgba(255, 255, 255, 0.02);
+    }
 
-	/* Links */
-	.content :global(a) {
-		color: #61afef;
-		text-decoration: none;
-		border-bottom: 1px dashed rgba(97, 175, 239, 0.6);
-		transition:
-			border-bottom-color 150ms ease,
-			color 150ms ease;
-	}
+    /* Links */
+    .content :global(a) {
+        color: #61afef;
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(97, 175, 239, 0.6);
+        transition:
+            border-bottom-color 150ms ease,
+            color 150ms ease;
+    }
 
-	.content :global(a:hover) {
-		color: var(--fg);
-		border-bottom-color: var(--fg);
-	}
+    .content :global(a:hover) {
+        color: var(--fg);
+        border-bottom-color: var(--fg);
+    }
 
-	/* Footer navigation */
-	.post-footer {
-		margin-top: 4rem;
-		padding-top: 2rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
-	}
+    /* Footer navigation */
+    .post-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-	.back-link {
-		font-size: 0.9rem;
-		text-decoration: none;
-		color: var(--fg);
-		opacity: 0.6;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		transition: opacity 150ms ease;
-	}
+    .back-link {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: var(--fg);
+        opacity: 0.6;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: opacity 150ms ease;
+    }
 
-	.back-link:hover {
-		opacity: 1;
-	}
+    .back-link:hover {
+        opacity: 1;
+    }
 </style>
