@@ -23,7 +23,7 @@ const env = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 let mdContent = langCode === "pt" ? ptContent : enContent;
 
-mdContent = mdContent.replace(/\{\{(\w+)\}\}/g, (match, p1) => {
+mdContent = mdContent.replace(/\{\{(\w+)\}\}/g, (_, p1) => {
     return env[p1] || process.env[p1] || `@@${p1}@@`;
 });
 
