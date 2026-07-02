@@ -84,6 +84,9 @@ export class Arrow implements Drawable {
         } else if (handle === 'end') {
             this.end.x += dx
             this.end.y += dy
+        } else if (handle === 'se') {
+            this.end.x = this.start.x + dx
+            this.end.y = this.start.y + dy
         }
     }
 

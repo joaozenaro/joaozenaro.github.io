@@ -9,7 +9,7 @@ import {
     Copy,
 } from 'lucide-astro'
 
-const { attr, name, label, tooltip, pressed } = Astro.props
+const { id, attr, name, label, tooltip, pressed } = Astro.props
 
 const icons = {
     select: MousePointer2,
@@ -27,6 +27,7 @@ const ToolIcon = icons[attr as Tool] ?? MousePointer2
 ---
 
 <button
+    id={id}
     aria-pressed={pressed}
     tabindex="-1"
     data-tool={attr}

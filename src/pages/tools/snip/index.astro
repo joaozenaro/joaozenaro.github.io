@@ -15,11 +15,13 @@ import ColorPicker from './ColorPicker.astro'
         <header>
             <div>Snip</div>
 
-            <div role="toolbar" aria-label="Tools">
-                <Button attr="select" name="Select" pressed />
-                <Button attr="rect" name="Rect" />
-                <Button attr="arrow" name="Arrow" />
-                <Button attr="pixelate" name="Pixelate" />
+            <div class="toolbar" role="toolbar" aria-label="Tools">
+                <div>
+                    <Button attr="select" name="Select" pressed />
+                    <Button attr="rect" name="Rect" />
+                    <Button attr="arrow" name="Arrow" />
+                    <Button attr="pixelate" name="Pixelate" />
+                </div>
                 <ColorPicker />
             </div>
 
@@ -51,7 +53,7 @@ import ColorPicker from './ColorPicker.astro'
     main {
         flex: 1;
         display: grid;
-        grid-template-rows: 48px 1fr;
+        grid-template-rows: 64px 1fr;
         font-size: 1.125rem;
     }
 
@@ -60,6 +62,12 @@ import ColorPicker from './ColorPicker.astro'
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
         padding: 0 1rem;
+        
+        .toolbar {
+            display: flex;
+            place-items: center;
+            gap: 20px;
+        }
 
         .right {
             justify-self: end;
@@ -71,5 +79,49 @@ import ColorPicker from './ColorPicker.astro'
         width: 100%;
         display: grid;
         place-items: center;
+    }
+
+    :global(#toast-container) {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        pointer-events: none;
+    }
+
+    :global(.toast) {
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #ffffff;
+        background: rgba(30, 30, 30, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+        transform: translateY(16px) scale(0.95);
+        opacity: 0;
+        transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        pointer-events: auto;
+    }
+
+    :global(.toast.visible) {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    :global(.toast-success) {
+        border-left: 3px solid #10b981;
+    }
+
+    :global(.toast-error) {
+        border-left: 3px solid #ef4444;
     }
 </style>

@@ -99,6 +99,11 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
     // --- Copy ---
     btnCopy?.addEventListener('click', async () => {
         const result = await copyAnnotatedImage(store)
+        if (result.ok) {
+            showToast('Annotated image copied to clipboard!', 'success')
+        } else {
+            showToast(`Failed to copy: ${result.reason}`, 'error')
+        }
         btnCopy.dataset.tooltip = result.ok ? 'Copied!' : result.reason
         if (result.ok) {
             setTimeout(() => {
@@ -110,14 +115,16 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
     // --- Keyboard shortcuts ---
     window.addEventListener('keydown', (e) => {
         const isMod = e.metaKey || e.ctrlKey
+        const target = e.target as HTMLElement | null
+        const isTyping =
+            target &&
+            (target.tagName === 'INPUT' ||
+                target.tagName === 'TEXTAREA' ||
+                target.isContentEditable)
+
+        if (isTyping) return
 
         if ((e.key === 'Delete' || e.key === 'Backspace') && store.selected) {
-            const target = e.target as HTMLElement | null
-            if (
-                target &&
-                (target.tagName === 'INPUT' || target.isContentEditable)
-            )
-                return
             e.preventDefault()
             store.beginChange()
             store.removeSelected()
@@ -138,10 +145,65 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
             return
         }
 
+        if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            const key = e.key.toLowerCase()
+            if (key === 'r') {
+                e.preventDefault()
+                store.setTool('rect')
+                return
+            }
+            if (key === 'a') {
+                e.preventDefault()
+                store.setTool('arrow')
+                return
+            }
+            if (key === 'v') {
+                e.preventDefault()
+                store.setTool('select')
+                return
+            }
+            if (key === 'p') {
+                e.preventDefault()
+                store.setTool('pixelate')
+                return
+            }
+        }
+
         if (e.key === 'Escape') {
             store.select(null)
         }
     })
+
+    // --- Toast notification ---
+    function showToast(message: string, type: 'success' | 'error' = 'success'): void {
+        let container = document.getElementById('toast-container')
+        if (!container) {
+            container = document.createElement('div')
+            container.id = 'toast-container'
+            document.body.appendChild(container)
+        }
+
+        const toast = document.createElement('div')
+        toast.className = `toast toast-${type}`
+        toast.innerText = message
+
+        container.appendChild(toast)
+
+        // Trigger transition
+        requestAnimationFrame(() => {
+            toast.classList.add('visible')
+        })
+
+        setTimeout(() => {
+            toast.classList.remove('visible')
+            toast.addEventListener('transitionend', () => {
+                toast.remove()
+                if (container && container.childElementCount === 0) {
+                    container.remove()
+                }
+            })
+        }, 2500)
+    }
 
     // Cleanup if this script instance is ever torn down (e.g. Astro view transitions).
     window.addEventListener('pagehide', () => {

@@ -126,11 +126,38 @@ export class InteractionController {
     }
 
     private onPointerMove = (e: PointerEvent): void => {
-        if (this.gesture.kind === 'none') return
         const point = this.viewport.toCanvasPoint(e)
         const { store } = this
 
+        if (this.gesture.kind === 'none') {
+            if (store.tool === 'select') {
+                const hit = hitTest(
+                    point,
+                    store.elements,
+                    store.selected,
+                    this.viewport.handleHitRadius()
+                )
+                if (hit?.kind === 'handle') {
+                    if (hit.handle === 'nw' || hit.handle === 'se') {
+                        this.canvas.style.cursor = 'nwse-resize'
+                    } else if (hit.handle === 'ne' || hit.handle === 'sw') {
+                        this.canvas.style.cursor = 'nesw-resize'
+                    } else {
+                        this.canvas.style.cursor = 'move'
+                    }
+                } else if (hit?.kind === 'shape') {
+                    this.canvas.style.cursor = 'move'
+                } else {
+                    this.canvas.style.cursor = 'default'
+                }
+            } else {
+                this.canvas.style.cursor = 'crosshair'
+            }
+            return
+        }
+
         if (this.gesture.kind === 'drawing') {
+            this.canvas.style.cursor = 'crosshair'
             const g = this.gesture
             const dx = point.x - g.startPoint.x
             const dy = point.y - g.startPoint.y
@@ -144,6 +171,7 @@ export class InteractionController {
         }
 
         if (this.gesture.kind === 'moving') {
+            this.canvas.style.cursor = 'move'
             const g = this.gesture
             const dx = point.x - g.lastPoint.x
             const dy = point.y - g.lastPoint.y
@@ -157,6 +185,13 @@ export class InteractionController {
 
         if (this.gesture.kind === 'resizing') {
             const g = this.gesture
+            if (g.handle === 'nw' || g.handle === 'se') {
+                this.canvas.style.cursor = 'nwse-resize'
+            } else if (g.handle === 'ne' || g.handle === 'sw') {
+                this.canvas.style.cursor = 'nesw-resize'
+            } else {
+                this.canvas.style.cursor = 'move'
+            }
             store.setInteraction('resizing')
             if (g.handle === 'start' || g.handle === 'end') {
                 // Arrow endpoints: incremental delta since Arrow.resize mutates directly (see Arrow.ts).
@@ -194,15 +229,18 @@ export class InteractionController {
                 store.abortChange()
             } else {
                 store.commitChange()
+                store.setTool('select')
             }
         }
 
         if (g.kind === 'moving') {
+            g.element.setLive?.(false)
             if (g.moved) {
                 store.commitChange()
             } else {
                 store.abortChange()
             }
+            store.setTool('select')
         }
 
         if (g.kind === 'resizing') {
@@ -212,10 +250,17 @@ export class InteractionController {
             } else {
                 store.abortChange()
             }
+            store.setTool('select')
         }
 
         store.setInteraction('idle')
         store.markDirty()
         this.gesture = { kind: 'none' }
+
+        if (store.tool === 'select') {
+            this.canvas.style.cursor = 'default'
+        } else {
+            this.canvas.style.cursor = 'crosshair'
+        }
     }
 }
