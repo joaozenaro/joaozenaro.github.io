@@ -1,4 +1,4 @@
-import type { Drawable, Point, ResizeHandle } from './lib/types'
+import type { Drawable, Point, ResizeHandle } from './types'
 
 export interface HandleHit {
     kind: 'handle'

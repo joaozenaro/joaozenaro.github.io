@@ -1,7 +1,7 @@
 import type { Drawable, Point, Rect, ResizeHandle } from '../types'
-import { pointDistance } from '../../lib/utils'
+import { pointDistance } from '../utils'
 import { PIXELATE_BLOCK_SIZE } from '../config'
-import { getImageSampler } from '../../imageSource'
+import { getImageSampler } from '../imageSource'
 
 interface Block {
     x: number

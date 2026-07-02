@@ -3,7 +3,7 @@ import Button from '@components/snip/Button.astro'
 import CanvasArea from '@components/snip/CanvasArea.astro'
 import EmptyState from '@components/snip/EmptyState.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import ColorPicker from './ColorPicker.astro'
+import ColorPicker from '@components/snip/ColorPicker.astro'
 ---
 
 <BaseLayout
@@ -46,7 +46,7 @@ import ColorPicker from './ColorPicker.astro'
 </BaseLayout>
 
 <script>
-    import './init.ts'
+    import './_lib/init.ts'
 </script>
 
 <style>
