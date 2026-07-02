@@ -3,6 +3,7 @@ import Button from '@components/snip/Button.astro'
 import CanvasArea from '@components/snip/CanvasArea.astro'
 import EmptyState from '@components/snip/EmptyState.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
+import ColorPicker from './ColorPicker.astro'
 ---
 
 <BaseLayout
@@ -19,6 +20,7 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                 <Button attr="rect" name="Rect" />
                 <Button attr="arrow" name="Arrow" />
                 <Button attr="pixelate" name="Pixelate" />
+                <ColorPicker />
             </div>
 
             <div class="right">

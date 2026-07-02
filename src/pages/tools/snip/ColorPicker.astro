@@ -1,0 +1,60 @@
+---
+const colors = [
+    { name: 'Red', hex: '#ff3b30' },
+    { name: 'Green', hex: '#34c759' },
+    { name: 'Blue', hex: '#007aff' },
+    { name: 'Yellow', hex: '#ffcc00' },
+    { name: 'Purple', hex: '#af52de' },
+    { name: 'White', hex: '#ffffff' },
+    { name: 'Black', hex: '#000000' },
+] as const
+
+const { active = '#ff3b30' } = Astro.props
+---
+
+<div role="radiogroup" aria-label="Color" id="color-picker">
+    {
+        colors.map((c) => (
+            <button
+                type="button"
+                role="radio"
+                aria-checked={c.hex === active}
+                aria-label={c.name}
+                data-color={c.hex}
+                style={`--swatch: ${c.hex}`}
+            />
+        ))
+    }
+</div>
+
+<style>
+    #color-picker {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 4px;
+    }
+
+    button {
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        background: var(--swatch);
+        cursor: pointer;
+        outline: none;
+        transition:
+            transform 100ms ease,
+            border-color 100ms ease;
+    }
+
+    button:hover {
+        transform: scale(1.12);
+    }
+
+    button[aria-checked='true'] {
+        border-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+    }
+</style>
