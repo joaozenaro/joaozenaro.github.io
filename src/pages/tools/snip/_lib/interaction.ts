@@ -1,6 +1,6 @@
 import type { EditorStore } from './store'
 import { Viewport } from './viewport'
-import { hitTest } from '../hitTest'
+import { hitTest } from './hitTest'
 import type { Drawable, Point, ResizeHandle } from './types'
 import { Rectangle } from './drawables/Rectangle'
 import { Arrow } from './drawables/Arrow'

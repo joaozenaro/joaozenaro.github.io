@@ -1,6 +1,6 @@
 import type { EditorStore } from './store'
 import type { Renderer } from './renderer'
-import { setSourceImage } from '../imageSource'
+import { setSourceImage } from './imageSource'
 
 export type OnImageLoaded = (img: HTMLImageElement) => void
 
