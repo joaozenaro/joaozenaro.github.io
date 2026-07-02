@@ -42,10 +42,10 @@ export function getImageSampler(): ImageSampler | null {
 
     return {
         averageColor(bx, by, bw, bh) {
-            const x0 = Math.max(0, bx)
-            const y0 = Math.max(0, by)
-            const x1 = Math.min(width, bx + bw)
-            const y1 = Math.min(height, by + bh)
+            const x0 = Math.max(0, Math.floor(bx))
+            const y0 = Math.max(0, Math.floor(by))
+            const x1 = Math.min(width, Math.floor(bx + bw))
+            const y1 = Math.min(height, Math.floor(by + bh))
             if (x1 <= x0 || y1 <= y0) return null
 
             // Sample on a grid instead of every pixel — plenty accurate for an
