@@ -4,6 +4,7 @@ import { Viewport } from './viewport'
 import { InteractionController } from './interaction'
 import { initPasteHandler } from './paste'
 import { copyAnnotatedImage } from './clipboard'
+import { downloadAnnotatedImage } from './download'
 import { setActiveColor, subscribeActiveColor } from './colorStore'
 import type { ToolName } from './types'
 
@@ -18,6 +19,7 @@ const colorPicker = document.getElementById('color-picker')
 const btnUndo = document.getElementById('btn-undo')
 const btnRedo = document.getElementById('btn-redo')
 const btnCopy = document.getElementById('btn-copy')
+const btnDownload = document.getElementById('btn-download')
 
 if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
     console.error('Snip: expected DOM elements are missing — aborting init.')
@@ -33,6 +35,8 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
         emptyState.style.display = 'none'
         editArea.style.display = 'flex'
         syncToolCursor()
+        if (btnCopy) btnCopy.dataset.tooltip = 'Copy'
+        if (btnDownload) btnDownload.dataset.tooltip = 'Download'
     })
 
     // --- Toolbar: tool buttons ---
@@ -112,6 +116,22 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
         }
     })
 
+    // --- Download ---
+    btnDownload?.addEventListener('click', async () => {
+        const result = await downloadAnnotatedImage(store)
+        if (result.ok) {
+            showToast('Annotated image downloaded!', 'success')
+        } else {
+            showToast(`Failed to download: ${result.reason}`, 'error')
+        }
+        btnDownload.dataset.tooltip = result.ok ? 'Downloaded!' : result.reason
+        if (result.ok) {
+            setTimeout(() => {
+                btnDownload.dataset.tooltip = 'Download'
+            }, 1500)
+        }
+    })
+
     // --- Keyboard shortcuts ---
     window.addEventListener('keydown', (e) => {
         const isMod = e.metaKey || e.ctrlKey
@@ -175,7 +195,10 @@ if (!canvas || !imgEl || !editArea || !emptyState || !toolbar) {
     })
 
     // --- Toast notification ---
-    function showToast(message: string, type: 'success' | 'error' = 'success'): void {
+    function showToast(
+        message: string,
+        type: 'success' | 'error' = 'success'
+    ): void {
         let container = document.getElementById('toast-container')
         if (!container) {
             container = document.createElement('div')
