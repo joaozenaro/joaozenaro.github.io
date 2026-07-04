@@ -1,9 +1,9 @@
 :root {
     --bg: #242424;
     --fg: #dbdbdb;
-    --fg-muted: #ababab;
-    --fg-subtle: #8a8a8a;
-    --fg-faint: #767676;
+    --fg-muted: #ababab;   /* 6.75:1 on --bg */
+    --fg-subtle: #919191;  /* 4.90:1 on --bg */
+    --fg-faint: #8b8b8b;   /* 4.56:1 on --bg */
     --accent: #5b9bd5;
     --border-subtle: rgba(255, 255, 255, 0.08);
     --font-sans: 'Inter', system-ui, sans-serif;
