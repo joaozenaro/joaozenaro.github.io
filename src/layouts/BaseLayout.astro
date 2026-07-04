@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+import '../styles/theme.css'
 
 interface Props {
     title?: string
@@ -24,35 +25,9 @@ const pageTitle = title === siteTitle ? siteTitle : `${title}`
         <meta name="description" content={description} />
         <title>{pageTitle}</title>
         <ClientRouter />
+        <slot name="head" />
     </head>
     <body>
         <slot />
     </body>
 </html>
-
-<style is:global>
-    :root {
-        --bg: #242424;
-        --fg: #dbdbdb;
-        --accent: #156acc;
-        --font-sans: 'Inter', system-ui, sans-serif;
-    }
-
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        min-height: 100vh;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: var(--font-sans);
-        font-size: medium;
-        display: flex;
-        flex-direction: column;
-    }
-</style>
