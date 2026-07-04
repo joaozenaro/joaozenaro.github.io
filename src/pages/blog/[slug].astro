@@ -24,7 +24,7 @@ const formatDate = (date: Date) =>
 const tocHeadings = headings.filter((h) => h.depth > 1 && h.depth <= 3)
 ---
 
-<Layout title={post.data.title} description={post.data.title}>
+<Layout title={post.data.title} description={post.data.title} viewTransitions>
     <div class="post-container">
         <article class="post" transition:name={`post-card-${post.id}`}>
             <header class="post-header">

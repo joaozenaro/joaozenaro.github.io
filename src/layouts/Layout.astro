@@ -4,9 +4,10 @@ import BaseLayout from './BaseLayout.astro'
 interface Props {
     title?: string
     description?: string
+    viewTransitions?: boolean
 }
 
-const { title, description } = Astro.props
+const { title, description, viewTransitions } = Astro.props
 
 const segments = Astro.url.pathname.split('/').filter(Boolean)
 
@@ -19,7 +20,7 @@ const breadcrumbs = [
 ]
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} viewTransitions={viewTransitions}>
     <header class="site-header">
         <nav aria-label="Breadcrumb">
             <ol class="breadcrumb">
