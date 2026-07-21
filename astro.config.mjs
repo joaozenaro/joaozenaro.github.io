@@ -5,6 +5,8 @@ import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 
+import tailwindcss from '@tailwindcss/vite'
+
 // https://astro.build/config
 export default defineConfig({
     markdown: {
@@ -16,5 +18,10 @@ export default defineConfig({
             rehypePlugins: [rehypeKatex],
         }),
     },
+
     site: 'https://jmz.dev.br',
+
+    vite: {
+        plugins: [tailwindcss()],
+    },
 })

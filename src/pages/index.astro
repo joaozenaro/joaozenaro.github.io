@@ -9,7 +9,7 @@ const work = [
     {
         title: 'heatsync',
         description:
-            'HeatSync is a full-stack IoT dashboard for monitoring humidity and temperature in real time. It\'s built on a Next.js frontend backed by a NestJS API following hexagonal architecture, with live sensor data streamed over WebSockets.',
+            "HeatSync is a full-stack IoT dashboard for monitoring humidity and temperature in real time. It's built on a Next.js frontend backed by a NestJS API following hexagonal architecture, with live sensor data streamed over WebSockets.",
         href: 'https://github.com/joaozenaro/heatsync',
         image: heatsyncImg,
         action: 'View on GitHub',
@@ -36,27 +36,52 @@ const work = [
 ---
 
 <Layout title="João Zenaro" description="Software developer.">
-    <div class="home">
-        <section class="landing">
-            <p class="eyebrow">Welcome, I'm</p>
-            <h1>João M. Zenaro</h1>
+    <div class="w-full">
+        <section
+            class="min-h-[calc(100vh-100px)] max-md:min-h-auto max-md:py-20 flex flex-col justify-center gap-4 max-w-4xl mx-auto p-8"
+        >
+            <p class="text-sm text-[var(--fg-subtle)]">Welcome, I'm</p>
+            <h1
+                class="text-6xl md:text-[5.5rem] leading-[0.95] font-bold tracking-normal"
+            >
+                João M. Zenaro
+            </h1>
 
-            <p class="description">
+            <p
+                class="text-lg leading-relaxed max-w-[45ch] text-[var(--fg-muted)]"
+            >
                 I'm a software developer based in Brazil, specializing in .NET
-                and web technologies. You can read my <a href="/blog">blog</a>,
-                check out my <a href="/tools">tools</a>, or see my <a
-                    href="/resume">resume</a
+                and web technologies. You can read my <a
+                    href="/blog"
+                    class="text-[var(--accent)] underline decoration-[color-mix(in_srgb,var(--accent)_30%,transparent)] underline-offset-4 transition-colors hover:text-[var(--fg)] hover:decoration-white/80"
+                    >blog</a
+                >, check out my <a
+                    href="/tools"
+                    class="text-[var(--accent)] underline decoration-[color-mix(in_srgb,var(--accent)_30%,transparent)] underline-offset-4 transition-colors hover:text-[var(--fg)] hover:decoration-white/80"
+                    >tools</a
+                >, or see my <a
+                    href="/resume"
+                    class="text-[var(--accent)] underline decoration-[color-mix(in_srgb,var(--accent)_30%,transparent)] underline-offset-4 transition-colors hover:text-[var(--fg)] hover:decoration-white/80"
+                    >resume</a
                 >.
             </p>
         </section>
 
-        <section class="outside-work" aria-labelledby="outside-work-title">
-            <div class="section-heading">
-                <p class="eyebrow">Outside work</p>
-                <h2 id="outside-work-title">Some personal projects</h2>
+        <section
+            class="w-full max-w-4xl mx-auto pt-16 pb-24 px-8"
+            aria-labelledby="outside-work-title"
+        >
+            <div class="mb-6 pb-4 border-b border-white/10">
+                <p class="text-sm text-[var(--fg-subtle)]">Outside work</p>
+                <h2
+                    id="outside-work-title"
+                    class="text-3xl leading-tight font-bold tracking-normal"
+                >
+                    Some personal projects
+                </h2>
             </div>
 
-            <div class="work-grid">
+            <div class="flex flex-col gap-5">
                 <ProjectCard
                     title={work[0].title}
                     description={work[0].description}
@@ -67,121 +92,22 @@ const work = [
                     featured={true}
                     stack={work[0].stack}
                 />
-                <div class="work-grid-secondary">
-                    {work.slice(1).map((item) => (
-                        <ProjectCard
-                            title={item.title}
-                            description={item.description}
-                            href={item.href}
-                            image={item.image}
-                            action={item.action}
-                        />
-                    ))}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {
+                        work
+                            .slice(1)
+                            .map((item) => (
+                                <ProjectCard
+                                    title={item.title}
+                                    description={item.description}
+                                    href={item.href}
+                                    image={item.image}
+                                    action={item.action}
+                                />
+                            ))
+                    }
                 </div>
             </div>
         </section>
     </div>
 </Layout>
-
-<style>
-    .home {
-        width: 100%;
-    }
-
-    .landing {
-        min-height: calc(100vh - 100px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
-        max-width: 60rem;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .eyebrow {
-        font-size: 0.875rem;
-        color: var(--fg-subtle);
-    }
-
-    h1 {
-        font-size: 5.5rem;
-        line-height: 0.95;
-        font-weight: 700;
-        letter-spacing: 0;
-    }
-
-    .description {
-        font-size: 1.125rem;
-        line-height: 1.6;
-        max-width: 45ch;
-        color: var(--fg-muted);
-    }
-
-    .description a {
-        color: var(--accent);
-        text-decoration: underline;
-        text-decoration-color: color-mix(
-            in srgb,
-            var(--accent) 30%,
-            transparent
-        );
-        text-underline-offset: 4px;
-        transition:
-            color 150ms ease,
-            text-decoration-color 150ms ease;
-    }
-
-    .description a:hover {
-        color: var(--fg);
-        text-decoration-color: rgb(255 255 255 / 0.8);
-    }
-
-    .outside-work {
-        width: 100%;
-        max-width: 60rem;
-        margin: 0 auto;
-        padding: 4rem 2rem 6rem;
-    }
-
-    .section-heading {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    h2 {
-        font-size: 2rem;
-        line-height: 1.2;
-        font-weight: 700;
-        letter-spacing: 0;
-    }
-
-    .work-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-    }
-
-    .work-grid-secondary {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-    }
-
-    @media (max-width: 760px) {
-        .landing {
-            min-height: auto;
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-        }
-
-        .work-grid-secondary {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>

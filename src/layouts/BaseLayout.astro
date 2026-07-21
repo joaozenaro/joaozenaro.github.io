@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
-import '../styles/theme.css'
+import '../styles/global.css'
 
 interface Props {
     title?: string
@@ -31,7 +31,9 @@ const pageTitle = title === siteTitle ? siteTitle : `${title}`
         {viewTransitions && <ClientRouter />}
         <slot name="head" />
     </head>
-    <body>
+    <body
+        class="min-h-screen bg-[var(--bg)] text-[var(--fg)] font-sans flex flex-col m-0 p-0 box-border text-base"
+    >
         <slot />
     </body>
 </html>

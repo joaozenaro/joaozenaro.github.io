@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-bg: #242424;
+    --color-fg: #dbdbdb;
+    --color-fg-muted: #ababab;
+    --color-fg-subtle: #919191;
+    --color-fg-faint: #8b8b8b;
+    --color-accent: #5b9bd5;
+}
+
+:root {
+    --bg: #242424;
+    --fg: #dbdbdb;
+    --fg-muted: #ababab;
+    --fg-subtle: #919191;
+    --fg-faint: #8b8b8b;
+    --accent: #5b9bd5;
+}

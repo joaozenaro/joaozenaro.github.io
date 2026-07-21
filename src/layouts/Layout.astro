@@ -20,10 +20,14 @@ const breadcrumbs = [
 ]
 ---
 
-<BaseLayout title={title} description={description} viewTransitions={viewTransitions}>
-    <header class="site-header">
+<BaseLayout
+    title={title}
+    description={description}
+    viewTransitions={viewTransitions}
+>
+    <header class="h-[50px] grid place-items-center">
         <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="flex list-none gap-2 text-[var(--fg)]">
                 <li>/</li>
                 {
                     breadcrumbs.map((crumb, index) => (
@@ -32,7 +36,12 @@ const breadcrumbs = [
                                 {index === breadcrumbs.length - 1 ? (
                                     <span>{crumb.name}</span>
                                 ) : (
-                                    <a href={crumb.href}>{crumb.name}</a>
+                                    <a
+                                        href={crumb.href}
+                                        class="text-[var(--fg)] hover:underline"
+                                    >
+                                        {crumb.name}
+                                    </a>
                                 )}
                             </li>
                             <li>/</li>
@@ -42,54 +51,12 @@ const breadcrumbs = [
             </ol>
         </nav>
     </header>
-    <main>
+    <main class="flex-1 flex flex-col w-full text-[var(--fg)]">
         <slot />
     </main>
-    <footer>
-        <span>João Zenaro - software developer</span>
+    <footer class="h-[50px] grid justify-end content-center pr-5 mt-auto">
+        <span class="text-[var(--fg-faint)] text-sm"
+            >João Zenaro - software developer</span
+        >
     </footer>
 </BaseLayout>
-
-<style is:global>
-    .site-header {
-        height: 50px;
-        display: grid;
-        place-items: center;
-    }
-
-    .breadcrumb {
-        display: flex;
-        list-style: none;
-        column-gap: 8px;
-    }
-
-    footer {
-        height: 50px;
-        display: grid;
-        justify-content: end;
-        align-content: center;
-        padding-right: 20px;
-        margin-top: auto;
-    }
-
-    footer span {
-        color: var(--fg-faint);
-        font-size: small;
-    }
-
-    main {
-        flex: 1;
-        display: flex;
-    }
-
-    h1 {
-        font-family: var(--font-sans);
-        font-size: large;
-        font-weight: 500;
-    }
-
-    p,
-    a {
-        color: var(--fg);
-    }
-</style>
