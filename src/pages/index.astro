@@ -5,24 +5,16 @@ import heatsyncImg from '../assets/heatsync-dash.png'
 import agoriumImg from '../assets/agorium.png'
 import parkhubImg from '../assets/parkhub.png'
 
-import type { ImageMetadata } from 'astro'
-
-interface WorkItem {
-    title: string
-    description: string
-    href: string
-    image: ImageMetadata
-    action: string
-}
-
-const work: WorkItem[] = [
+const work = [
     {
         title: 'heatsync',
         description:
-            'HeatSync is a full-stack IoT dashboard application designed to monitor humidity and temperature in real time.',
+            'HeatSync is a full-stack IoT dashboard for monitoring humidity and temperature in real time. It\'s built on a Next.js frontend backed by a NestJS API following hexagonal architecture, with live sensor data streamed over WebSockets.',
         href: 'https://github.com/joaozenaro/heatsync',
         image: heatsyncImg,
         action: 'View on GitHub',
+        featured: true,
+        stack: ['Next.js', 'NestJS', 'WebSockets', 'Hexagonal Architecture'],
     },
     {
         title: 'agorium',
@@ -65,18 +57,27 @@ const work: WorkItem[] = [
             </div>
 
             <div class="work-grid">
-                {
-                    work.map((item, index) => (
+                <ProjectCard
+                    title={work[0].title}
+                    description={work[0].description}
+                    href={work[0].href}
+                    image={work[0].image}
+                    action={work[0].action}
+                    isLcp={true}
+                    featured={true}
+                    stack={work[0].stack}
+                />
+                <div class="work-grid-secondary">
+                    {work.slice(1).map((item) => (
                         <ProjectCard
                             title={item.title}
                             description={item.description}
                             href={item.href}
                             image={item.image}
                             action={item.action}
-                            isLcp={index === 0}
                         />
-                    ))
-                }
+                    ))}
+                </div>
             </div>
         </section>
     </div>
@@ -157,8 +158,14 @@ const work: WorkItem[] = [
     }
 
     .work-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .work-grid-secondary {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.25rem;
     }
 
@@ -173,7 +180,7 @@ const work: WorkItem[] = [
             font-size: 3.5rem;
         }
 
-        .work-grid {
+        .work-grid-secondary {
             grid-template-columns: 1fr;
         }
     }
