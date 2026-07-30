@@ -14,23 +14,23 @@ Videira, SC, Brazil
 : **Bellosoft**
 : **Oct 2023 - Present**
 
-- Led key development efforts in modernizing a production management system, successfully migrating a legacy implementation into a modern ERP module.
+- Led key development efforts modernizing a production management system for Moran's Specialist Caterers (Ireland), migrating a legacy implementation into a modern ERP module.
 - Optimized food label generation performance by 75% through complete reengineering and integration of the module into the ERP core.
-- Designed and implemented robust RESTful APIs using ASP.NET Core to enable complex third-party integrations, including payment solutions like Elavon, Stripe and PayPal, as well as accounting platforms such as QuickBooks and Xero.
-- Developed API integrations between the central ERP and B2C e-commerce platforms, ensuring data synchronization and robust performance using asynchronous processing and unit tests in an Azure DevOps CI/CD pipeline.
+- Led a SOAP-to-REST modernization of a .NET Framework 4.8 web service for GRI (Greyhound Racing Ireland), migrating to .NET 10.
+- Designed and implemented robust RESTful APIs using ASP.NET Core for complex third-party integrations, including payment solutions (Elavon, Stripe, PayPal) and accounting platforms (QuickBooks, Xero).
+- Developed API integrations between the central ERP and B2C e-commerce platforms, using asynchronous processing to ensure reliable, consistent data synchronization across systems.
 - Integrated AI-driven document processing features, automating document handling via Hangfire background jobs and user feedback loops through external API communications.
-- Maintained QA environment health by diagnosing failures across service integrations, data synchronization and environment-specific behavior discrepancies, ensuring issues were caught before reaching production.
-- Contributed to the team's transition from traditional Visual Studio installations to a fully containerized development environment using Docker and devcontainers, improving environment consistency across the team.
-- Implemented features and maintained legacy solutions in production systems serving clients across Brazil and Ireland.
+- Diagnosed and resolved issues across QA and Azure production environments, including service integrations, data synchronization and environment-specific behavior.
+- Key contributor to the design of GitHub Actions CI/CD workflows as part of the team's migration from Azure to self-hosted container-based infrastructure and development environments.
 
 **Junior Web Developer (.NET)**
 : **Inovea Tecnologia**
 : **Feb 2023 - Oct 2023**
 
-- Contributed to a public contracts and services management system using .NET Framework and VB.NET (WebForms), implementing features and bugfixes across complex business rules.
+- Contributed to a public procurement and contract management system (GESCON), used statewide by CINCATARINA, a consortium of Santa Catarina municipalities, as part of my work at Inovea Tecnologia.
 - Independently built an internal Markdown-based documentation platform to centralize and manage technical knowledge for the main management system.
 - Maintained and optimized Stored Procedures, Views and Indexes to enhance data retrieval in complex query chains.
-- Served as on-site technical liaison at a major client, gathering user feedback and translating business needs into technical specifications for the development team.
+- Served as on-site technical liaison at CINCATARINA, gathering user feedback and translating business needs into technical specifications for the development team.
 
 **Web Developer**
 : **Centro Universitário Unifacvest**
@@ -42,7 +42,7 @@ Videira, SC, Brazil
 : **Speasy & Fisk**
 : **Feb 2020 - Jun 2023**
 
-- Taught English intermittently to students ranging from teenagers to adult professionals across varied fields, adapting instruction to different proficiency levels and communication needs.
+- Taught English to students from teenagers to adult professionals, adapting instruction to proficiency levels and communication needs.
 
 ## Education
 
@@ -69,10 +69,10 @@ Engineered a full-stack IoT monitoring system using Next.js and NestJS with a he
 
 **Programming Languages:** C#, SQL, TypeScript, JavaScript, Python, VB.NET, HTML5, CSS3
 
-**Backend & Data:** ASP.NET Core, ASP.NET Web API, Entity Framework Core, SQL Server, PostgreSQL, RESTful APIs, LINQ, Hangfire, Unit Testing, GraphQL
+**Backend & Data:** ASP.NET Core, .NET Framework 4, Entity Framework Core, LINQ, PostgreSQL, SQL Server, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
 
-**Frontend:** Vue.js, Telerik, Bootstrap, Tailwind CSS, jQuery, SASS
+**Frontend:** Vue.js, React.js, Tailwind CSS, Telerik, Bootstrap, jQuery, SASS
 
-**Tools & DevOps:** Git, Docker, Azure DevOps, CI/CD, TFS / TFVC, Scrum, Agile
+**Tools & DevOps:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS / TFVC, Scrum, Agile
 
 **Languages:** English (Advanced: C1 Michigan English Test), Portuguese (native)

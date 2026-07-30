@@ -14,23 +14,23 @@ Videira, SC, Brasil
 : **Bellosoft**
 : **Out 2023 - Presente**
 
-- Atuei como desenvolvedor chave na modernização de um sistema de gestão de produção, migrando com sucesso uma implementação legada para um módulo moderno de ERP.
+- Atuei como desenvolvedor chave na modernização de um sistema de gestão de produção para a Moran's Specialist Caterers (Irlanda), migrando uma implementação legada para um módulo moderno de ERP.
 - Otimizei o desempenho da geração de etiquetas alimentares em 75% por meio de reengenharia completa e integração do módulo ao núcleo do ERP.
-- Projetei e implementei APIs RESTful robustas com ASP.NET Core para viabilizar integrações complexas com terceiros, incluindo soluções de pagamento como Elavon, Stripe e PayPal, além de plataformas contábeis como QuickBooks e Xero.
-- Desenvolvi integrações de API entre o ERP central e plataformas B2C de e-commerce, garantindo sincronização de dados e desempenho robusto com processamento assíncrono e testes unitários em um pipeline CI/CD no Azure DevOps.
+- Liderei uma modernização de SOAP para REST de um serviço web em .NET Framework 4.8 para a GRI (Greyhound Racing Ireland), migrando para .NET 10.
+- Projetei e implementei APIs RESTful robustas com ASP.NET Core para integrações complexas com terceiros, incluindo soluções de pagamento (Elavon, Stripe, PayPal) e plataformas contábeis (QuickBooks, Xero).
+- Desenvolvi integrações de API entre o ERP central e plataformas de e-commerce B2C, utilizando processamento assíncrono para garantir sincronização de dados confiável e consistente entre sistemas.
 - Integrei funcionalidades de processamento de documentos via IA, automatizando o tratamento de documentos por meio de jobs em background com Hangfire e loops de feedback com usuários via APIs externas.
-- Mantive a saúde dos ambientes QA diagnosticando falhas em serviços, dados, e discrepâncias em diferentes ambientes, garantindo que os problemas fossem identificados antes de atingir produção.
-- Contribuí para a transição de instalações tradicionais do Visual Studio para um ambiente de desenvolvimento totalmente containerizado com Docker e devcontainers, melhorando a consistência do ambiente.
-- Implementei funcionalidades e mantive soluções legadas em sistemas de produção atendendo clientes no Brasil e na Irlanda.
+- Diagnostiquei e resolvi problemas em ambientes de QA e produção no Azure, incluindo integrações de serviços, sincronização de dados e discrepâncias específicas de ambiente.
+- Contribuidor-chave no design de workflows de CI/CD com GitHub Actions como parte da migração da equipe do Azure para infraestrutura self-hosted baseada em containers e do ambientes de desenvolvimento.
 
 **Desenvolvedor Web Júnior (.NET)**
 : **Inovea Tecnologia**
 : **Fev 2023 - Out 2023**
 
-- Contribuí no desenvolvimento de um sistema de gestão de contratos e serviços públicos utilizando .NET Framework e VB.NET (WebForms), implementando funcionalidades e correções em regras de negócio complexas.
+- Contribuí em um sistema de gestão de licitações e contratos públicos (GESCON), utilizado em todo o estado pelo CINCATARINA, um consórcio de municípios de Santa Catarina.
 - Construí de forma independente uma plataforma interna de documentação baseada em Markdown para centralizar e gerenciar o conhecimento técnico do sistema principal.
 - Mantive e otimizei Stored Procedures, Views e Índices para melhorar a recuperação de dados em cadeias de consultas complexas.
-- Atuei como liaison técnico presencial em um cliente de grande porte, coletando feedback de usuários e traduzindo necessidades de negócio em especificações técnicas para a equipe de desenvolvimento.
+- Atuei como liaison técnico presencial no CINCATARINA, coletando feedback de usuários e traduzindo necessidades de negócio em especificações técnicas para a equipe de desenvolvimento.
 
 **Desenvolvedor Web**
 : **Centro Universitário Unifacvest**
@@ -42,7 +42,7 @@ Videira, SC, Brasil
 : **Speasy & Fisk**
 : **Fev 2020 - Jun 2023**
 
-- Lecionei inglês de forma intermitente para alunos desde adolescentes até profissionais adultos de diversas áreas, adaptando a instrução a diferentes níveis de proficiência e necessidades de comunicação.
+- Lecionei inglês para alunos desde adolescentes até profissionais adultos, adaptando a instrução a níveis de proficiência e necessidades de comunicação.
 
 ## Formação
 
@@ -69,10 +69,10 @@ Desenvolvi um sistema de monitoramento IoT utilizando Next.js e NestJS com arqui
 
 **Linguagens de Programação:** C#, SQL, TypeScript, JavaScript, Python, VB.NET, HTML5, CSS3
 
-**Backend & Dados:** ASP.NET Core, ASP.NET Web API, Entity Framework Core, SQL Server, PostgreSQL, RESTful APIs, LINQ, Hangfire, Testes Unitários, GraphQL
+**Backend & Dados:** ASP.NET Core, .NET Framework 4, Entity Framework Core, LINQ, PostgreSQL, SQL Server, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
 
-**Frontend:** Vue.js, Telerik, Bootstrap, Tailwind CSS, jQuery, SASS
+**Frontend:** Vue.js, React.js, Tailwind CSS, Telerik, Bootstrap, jQuery, SASS
 
-**Ferramentas & DevOps:** Git, Docker, Azure DevOps, CI/CD, TFS / TFVC, Scrum, Agile
+**Ferramentas:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS / TFVC, Scrum, Agile
 
 **Idiomas:** Inglês (Avançado: C1 Michigan English Test), Português (nativo)
