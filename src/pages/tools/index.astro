@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro'
 
 interface Tool {
-    id: string
     name: string
     description: string
     href: string
@@ -10,11 +9,14 @@ interface Tool {
 
 const tools: Tool[] = [
     {
-        id: 'snip',
         name: 'Snip',
-        description:
-            'Clipboard image annotation tool. Paste an image, annotate it, and copy it back to your clipboard.',
+        description: 'A clipboard image annotation tool.',
         href: '/tools/snip',
+    },
+    {
+        name: 'Log Table',
+        description: 'A local-only, spreadsheet-based worklog tracker.',
+        href: 'https://log-table.vercel.app/',
     },
 ]
 ---
