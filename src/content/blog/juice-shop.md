@@ -5,15 +5,17 @@ date: 2026-06-18
 
 Cybersecurity is a suspicious thing to study, especially the practical side of it. But hands-on is how it actually sticks.
 
-So instead of reading about it I set up a "sandbox" and ran a session with a few colleagues around [OWASP Juice Shop](https://juice-shop.github.io/juice-shop/). Probably the most modern and sophisticated **insecure** web application.
+So I set up a sandbox and ran a hands-on session for a few colleagues around [OWASP Juice Shop](https://juice-shop.github.io/juice-shop/). Probably the most modern and sophisticated **insecure** web application.
+
+The goal: give the team a safe space to break things and build real intuition for what "insecure" actually looks like.
 
 ## Exposing
 
-Juice Shop is a playground for vulnerabilities disguised as an e-commerce store. Running the docker image (`bkimminich/juice-shop`) locally is as easy as can be. Sharing it is something else.
+Juice Shop is a playground for vulnerabilities disguised as an e-commerce store. Running the docker image (`bkimminich/juice-shop`) locally is as easy as can be. Sharing it so everyone could poke at it simultaneously is something else.
 
 Opening any website to the web comes with its challenges, more so an app that's intentionally full of holes.
 
-When considering the options I ended up with these constraints: It had to be a short, one time session where up to 10 people could poke at it, and, ideally, free. To satisfy these constraits, and, learn something new, _Cloudflare Tunnels_ was the answer.
+When considering the options I ended up with these constraints: It had to be a short, one time session where up to 10 people could poke at it, and, ideally, free. To satisfy these constraints, and, learn something new, _Cloudflare Tunnels_ was the answer.
 
 $$
 \text{Internet} \rightarrow \overbrace{\text{Access}+\text{Tunnel}}^{\text{Cloudflare}} \rightarrow \text{Laptop}
@@ -25,7 +27,7 @@ Good enough for a controlled session. Safe? Most certainly not.
 
 ## Off to the races
 
-Juice Shop has dozens of challenges. On the easy end, viewing someone else's shopping cart: increment the id in `/rest/basket/:id`, no login required for the leak.
+Juice Shop has dozens of challenges. We started on the easy end: viewing someone else's shopping cart by incrementing the id in `/rest/basket/:id`, no login required for the leak.
 
 Basic login SQL injection, `' OR 1=1--` in the email field, gets the admin account in one line. From there it escalates to a UNION-based injection in the product search that dumps the entire user table, as long as the column count matches.
 
@@ -33,7 +35,7 @@ Some challenges lean on OSINT rather than code. Resetting a specific user's pass
 
 Others lean on obscurity, such as unprotected urls that are not linked anywhere in the UI. At times exposing one route leads to many others.
 
-Happily, the app let's us do XSS! Interestingly stored XSS, which is essentially:
+Happily, the app lets us do XSS! Interestingly stored XSS, which is essentially:
 
 <a target="blank"
 href="https://mermaid.live/edit#pako:eNptkkGLwjAQhf9KmLNK29R2zUFYt5c9uAiCLEsvIR1r0CbuJF3WFf_7RktFpDllZr73XkhyBmUrBAEOv1s0Cgsta5JNSaVhYR0lea30URrPXr2Xao80NFsj_QxPisVQd6OV1_eU3nk8n3dGgi3lIbC2dUF2OlhZ9WwHBLJYCLZCctp5x_wOn8Eu4sFyox_ZGgcdC-klk0qhc_28WIwfXFZdCiP0LRn3ZBLALlewd7NF5bEne_DDemQ2sKwHP9drhjCCmnQFwlOLI2iQGnkt4XyVlRAO3WAJImwrSfsSSnMJmnCZX9Y2vYxsW-9AbOXBhao9VtL3L3rvEpoK6c22xoPIpvHNBMQZfkHEWTxJeZ6lPOJJwqc8HcEptHk-SZM4miZJHiezLM8uI_i75UaTNIpmeRa_xBGPkpynQYKV9paW3c-6fbDLPz9cyLE">
@@ -61,13 +63,15 @@ Getting a forged cross-origin form submission to actually work meant spinning up
 </script>
 ```
 
-The username changes with the "victim" never doing anything. This one took actual troubleshooting rather than following a known payload, which made it the most satisfying to land.
+The username changes with the "victim" never doing anything. This one took actual troubleshooting rather than following a known payload, which made it the most satisfying to walk through together.
 
 ## Takeaways
 
 About the tooling: Cloudflare tunnels are practical, lightweight, easy to setup and about the best way to use your hardware as a real server.
 
 About the challenges: Ugly website, beautiful behavior. I highly encourage looking into the guide and poking around for yourself. The official companion guide is the way to go.
+
+About the format: Running this as a group surfaced questions nobody would have asked solo, and that made the exercise worth it.
 
 Final note: None of this required exotic tooling or deep expertise. The big takeaway is that small oversights stacked become real problems.
 
