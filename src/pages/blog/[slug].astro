@@ -132,11 +132,15 @@ const tocHeadings = headings.filter((h) => h.depth > 1 && h.depth <= 3)
         flex-direction: column;
         width: 100%;
         min-width: 0;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 6px;
         padding: 2rem;
         box-sizing: border-box;
+    }
+
+    @media (max-width: 767px) {
+        .content :global(.katex-display) {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
     }
 
     .post-header {
