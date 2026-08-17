@@ -17,7 +17,7 @@ Brazil
 
 - Modernized Moran's Specialist Caterers (Ireland) production management system by migrating a legacy implementation into a modern ERP module.
 - Reduced food label generation time by 75% by integrating it into the ERP core.
-- Independently modernized one of Greyhound Racing Ireland's web services from SOAP/.NET Framework 4.8 to REST/.NET 10.
+- Migrated one of Greyhound Racing Ireland's web services from SOAP/.NET Framework to REST/.NET 10.
 - Built ASP.NET Core integrations with 5 payment and accounting platforms, including Elavon, Stripe, PayPal, QuickBooks, and Xero.
 - Integrated the central ERP with B2C e-commerce platforms using asynchronous processing for cross-system data synchronization.
 - Automated mortgage-document review using AI-driven processing and Hangfire background jobs.
