@@ -1,48 +1,53 @@
 # João Marcelo Zenaro
 
-.NET Developer
-: LinkedIn: [linkedin.com/in/joaozenaro](https://linkedin.com/in/joaozenaro)
-: GitHub: [github.com/joaozenaro](https://github.com/joaozenaro)
-
-Videira, SC, Brazil
-: Email: [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
-: Phone: [{{PHONE}}]({{PHONE_URL}})
+Brazil
+| [jmz.dev.br](https://jmz.dev.br)
+@@PHONE_ITEM@@
+| [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
+| [LinkedIn](https://linkedin.com/in/joaozenaro)
+| [GitHub](https://github.com/joaozenaro)
 
 ## Experience
 
-**.NET Developer**
-: **Bellosoft**
-: **Oct 2023 - Present**
+**Bellosoft**
+: **Remote**
 
-- Led key development efforts modernizing a production management system for Moran's Specialist Caterers (Ireland), migrating a legacy implementation into a modern ERP module.
-- Optimized food label generation performance by 75% through complete reengineering and integration of the module into the ERP core.
-- Led a SOAP-to-REST modernization of a .NET Framework 4.8 web service for GRI (Greyhound Racing Ireland), migrating to .NET 10.
-- Designed and implemented robust RESTful APIs using ASP.NET Core for complex third-party integrations, including payment solutions (Elavon, Stripe, PayPal) and accounting platforms (QuickBooks, Xero).
-- Developed API integrations between the central ERP and B2C e-commerce platforms, using asynchronous processing to ensure reliable, consistent data synchronization across systems.
-- Integrated AI-driven document processing features, automating document handling via Hangfire background jobs and user feedback loops through external API communications.
-- Diagnosed and resolved issues across QA and Azure production environments, including service integrations, data synchronization and environment-specific behavior.
-- Key contributor to the design of GitHub Actions CI/CD workflows as part of the team's migration from Azure to self-hosted container-based infrastructure and development environments.
+**_.NET Developer_**
+: _Oct 2023 - Present_
 
-**Junior Web Developer (.NET)**
-: **Inovea Tecnologia**
-: **Feb 2023 - Oct 2023**
+- Modernized Moran's Specialist Caterers (Ireland) production management system by migrating a legacy implementation into a modern ERP module.
+- Reduced food label generation time by 75% by integrating it into the ERP core.
+- Independently modernized one of Greyhound Racing Ireland's web services from SOAP/.NET Framework 4.8 to REST/.NET 10.
+- Built ASP.NET Core integrations with 5 payment and accounting platforms, including Elavon, Stripe, PayPal, QuickBooks, and Xero.
+- Integrated the central ERP with B2C e-commerce platforms using asynchronous processing for cross-system data synchronization.
+- Automated mortgage-document review using AI-driven processing and Hangfire background jobs.
+- Contributed to GitHub Actions CI/CD on the team's migration to container-based infrastructure.
 
-- Contributed to a public procurement and contract management system (GESCON), used statewide by CINCATARINA, a consortium of Santa Catarina municipalities, as part of my work at Inovea Tecnologia.
-- Independently built an internal Markdown-based documentation platform to centralize and manage technical knowledge for the main management system.
-- Maintained and optimized Stored Procedures, Views and Indexes to enhance data retrieval in complex query chains.
-- Served as on-site technical liaison at CINCATARINA, gathering user feedback and translating business needs into technical specifications for the development team.
+**Inovea Tecnologia**
+: **Fraiburgo, SC**
 
-**Web Developer**
-: **Centro Universitário Unifacvest**
-: **Feb 2022 - Jul 2022**
+**_Junior Web Developer (.NET)_**
+: _Feb 2023 - Oct 2023_
 
-- Independently led the full development lifecycle, from requirements to deployment, of web applications and a custom CMS, under academic supervision.
+- Contributed to GESCON, a public procurement and contract-management system used across 295 Santa Catarina municipalities through CINCATARINA, where I served as on-site liaison.
+- Independently built an internal Markdown-based platform for centralized technical documentation.
+- Optimized Stored Procedures, Views, and Indexes across complex SQL query chains.
 
-**English Teacher (ESL)**
-: **Speasy & Fisk**
-: **Feb 2020 - Jun 2023**
+**Unifacvest**
+: **Lages, SC**
 
-- Taught English to students from teenagers to adult professionals, adapting instruction to proficiency levels and communication needs.
+**_Web Developer_**
+: _Feb 2022 - Jul 2022_
+
+- Developed a custom CMS under academic supervision.
+
+**Speasy & Fisk**
+: **Videira, SC**
+
+**_English Teacher (ESL)_**
+: _Feb 2020 - Jun 2023_
+
+- Taught English to teenagers and adults across varied proficiency levels.
 
 ## Education
 
@@ -63,16 +68,16 @@ Instituto Federal Catarinense
 **HeatSync (IoT temperature monitor)**
 : [github.com/joaozenaro/heatsync](https://github.com/joaozenaro/heatsync)
 
-Engineered a full-stack IoT monitoring system using Next.js and NestJS with a hexagonal architecture, processing real-time telemetry data via WebSockets. Configured hosting across Render, Vercel and Supabase.
+Built a full-stack IoT monitoring system with Next.js and NestJS, using hexagonal architecture and WebSockets for real-time telemetry. Deployed across Render, Vercel, and Supabase.
 
 ## Skills
 
-**Programming Languages:** C#, SQL, TypeScript, JavaScript, Python, VB.NET, HTML5, CSS3
+**Languages:** C#, SQL, TypeScript, JavaScript, Python, VB.NET
 
-**Backend & Data:** ASP.NET Core, .NET Framework 4, Entity Framework Core, LINQ, PostgreSQL, SQL Server, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
+**Backend & Data:** ASP.NET Core, .NET Framework, Entity Framework Core, LINQ, SQL Server, PostgreSQL, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
 
 **Frontend:** Vue.js, React.js, Tailwind CSS, Telerik, Bootstrap, jQuery, SASS
 
-**Tools & DevOps:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS / TFVC, Scrum, Agile
+**Tools & DevOps:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS/TFVC, Scrum, Agile
 
-**Languages:** English (Advanced: C1 Michigan English Test), Portuguese (native)
+**Spoken Languages:** English (C1 Michigan English Test), Portuguese (native)

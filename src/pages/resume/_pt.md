@@ -1,48 +1,53 @@
 # João Marcelo Zenaro
 
-Desenvolvedor .NET
-: LinkedIn: [linkedin.com/in/joaozenaro](https://linkedin.com/in/joaozenaro)
-: GitHub: [github.com/joaozenaro](https://github.com/joaozenaro)
-
-Videira, SC, Brasil
-: E-mail: [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
-: Telefone: [{{PHONE}}]({{PHONE_URL}})
+Brasil
+| [jmz.dev.br](https://jmz.dev.br)
+@@PHONE_ITEM@@
+| [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
+| [LinkedIn](https://linkedin.com/in/joaozenaro)
+| [GitHub](https://github.com/joaozenaro)
 
 ## Experiência
 
-**Desenvolvedor .NET**
-: **Bellosoft**
-: **Out 2023 - Presente**
+**Bellosoft**
+: **Remoto**
 
-- Atuei como desenvolvedor chave na modernização de um sistema de gestão de produção para a Moran's Specialist Caterers (Irlanda), migrando uma implementação legada para um módulo moderno de ERP.
-- Otimizei o desempenho da geração de etiquetas alimentares em 75% por meio de reengenharia completa e integração do módulo ao núcleo do ERP.
-- Liderei uma modernização de SOAP para REST de um serviço web em .NET Framework 4.8 para a GRI (Greyhound Racing Ireland), migrando para .NET 10.
-- Projetei e implementei APIs RESTful robustas com ASP.NET Core para integrações complexas com terceiros, incluindo soluções de pagamento (Elavon, Stripe, PayPal) e plataformas contábeis (QuickBooks, Xero).
-- Desenvolvi integrações de API entre o ERP central e plataformas de e-commerce B2C, utilizando processamento assíncrono para garantir sincronização de dados confiável e consistente entre sistemas.
-- Integrei funcionalidades de processamento de documentos via IA, automatizando o tratamento de documentos por meio de jobs em background com Hangfire e loops de feedback com usuários via APIs externas.
-- Diagnostiquei e resolvi problemas em ambientes de QA e produção no Azure, incluindo integrações de serviços, sincronização de dados e discrepâncias específicas de ambiente.
-- Contribuidor-chave no design de workflows de CI/CD com GitHub Actions como parte da migração da equipe do Azure para infraestrutura self-hosted baseada em containers e do ambientes de desenvolvimento.
+**_Desenvolvedor .NET_**
+: _Out 2023 - Presente_
 
-**Desenvolvedor Web Júnior (.NET)**
-: **Inovea Tecnologia**
-: **Fev 2023 - Out 2023**
+- Modernizei o sistema de gestão de produção da _Moran's Specialist Caterers_ (Irlanda) migrando uma implementação legada para um módulo moderno de ERP.
+- Reduzi o tempo de geração de rótulos alimentares em 75%, integrando ao ERP.
+- Conduzi a modernização de um serviço web da _Greyhound Racing Ireland_ SOAP/.NET Framework para REST/.NET 10.
+- Desenvolvi integrações ASP.NET Core com 5 plataformas de pagamento e contabilidade: Elavon, Stripe, PayPal, QuickBooks e Xero.
+- Integrei o ERP central com plataformas de e-commerce B2C, utilizando processamento assíncrono para sincronização de dados entre sistemas.
+- Automatizei a revisão de documentos hipotecários com IA e Hangfire.
+- Contribuí para pipelines de CI/CD no GitHub Actions na migração da equipe para infraestrutura baseada em containers.
 
-- Contribuí em um sistema de gestão de licitações e contratos públicos (GESCON), utilizado em todo o estado pelo CINCATARINA, um consórcio de municípios de Santa Catarina.
-- Construí de forma independente uma plataforma interna de documentação baseada em Markdown para centralizar e gerenciar o conhecimento técnico do sistema principal.
-- Mantive e otimizei Stored Procedures, Views e Índices para melhorar a recuperação de dados em cadeias de consultas complexas.
-- Atuei como liaison técnico presencial no CINCATARINA, coletando feedback de usuários e traduzindo necessidades de negócio em especificações técnicas para a equipe de desenvolvimento.
+**Inovea Tecnologia**
+: **Fraiburgo, SC**
 
-**Desenvolvedor Web**
-: **Centro Universitário Unifacvest**
-: **Fev 2022 - Jul 2022**
+**_Desenvolvedor Web Júnior (.NET)_**
+: _Fev 2023 - Out 2023_
 
-- Conduzi de forma independente o ciclo completo de desenvolvimento, do levantamento de requisitos à implantação, de aplicações web e um CMS personalizado, sob supervisão acadêmica.
+- Contribuí para o GESCON, sistema de gestão de licitações e contratos públicos utilizado em 295 municípios catarinenses pelo CINCATARINA, onde atuei como liaison técnico presencial.
+- Desenvolvi uma plataforma interna de documentação em Markdown para centralização do conhecimento técnico.
+- Otimizei Stored Procedures, Views e Índices em cadeias de consultas SQL complexas.
 
-**Professor de Inglês (ESL)**
-: **Speasy & Fisk**
-: **Fev 2020 - Jun 2023**
+**Unifacvest**
+: **Lages, SC**
 
-- Lecionei inglês para alunos desde adolescentes até profissionais adultos, adaptando a instrução a níveis de proficiência e necessidades de comunicação.
+**_Desenvolvedor Web_**
+: _Fev 2022 - Jul 2022_
+
+- Desenvolvi um CMS personalizado sob supervisão acadêmica.
+
+**Speasy & Fisk**
+: **Videira, SC**
+
+**_Professor de Inglês (ESL)_**
+: _Fev 2020 - Jun 2023_
+
+- Lecionei inglês para adolescentes e adultos de diversos níveis de proficiência.
 
 ## Formação
 
@@ -63,16 +68,16 @@ Instituto Federal Catarinense
 **HeatSync (Monitor IoT de temperatura)**
 : [github.com/joaozenaro/heatsync](https://github.com/joaozenaro/heatsync)
 
-Desenvolvi um sistema de monitoramento IoT utilizando Next.js e NestJS com arquitetura hexagonal, processando dados de telemetria em tempo real via WebSockets. Configurei hospedagem com Render, Vercel e Supabase.
+Desenvolvi um sistema de monitoramento IoT full-stack com Next.js e NestJS, utilizando arquitetura hexagonal e WebSockets para telemetria em tempo real. Hospedado no Render, Vercel e Supabase.
 
 ## Habilidades
 
-**Linguagens de Programação:** C#, SQL, TypeScript, JavaScript, Python, VB.NET, HTML5, CSS3
+**Linguagens:** C#, SQL, TypeScript, JavaScript, Python, VB.NET
 
-**Backend & Dados:** ASP.NET Core, .NET Framework 4, Entity Framework Core, LINQ, PostgreSQL, SQL Server, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
+**Backend & Dados:** ASP.NET Core, .NET Framework, Entity Framework Core, LINQ, SQL Server, PostgreSQL, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
 
 **Frontend:** Vue.js, React.js, Tailwind CSS, Telerik, Bootstrap, jQuery, SASS
 
-**Ferramentas:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS / TFVC, Scrum, Agile
+**Ferramentas & DevOps:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS/TFVC, Scrum, Agile
 
-**Idiomas:** Inglês (Avançado: C1 Michigan English Test), Português (nativo)
+**Idiomas:** Inglês (C1 Michigan English Test), Português (nativo)
