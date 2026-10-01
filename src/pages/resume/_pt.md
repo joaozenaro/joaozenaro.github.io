@@ -1,53 +1,51 @@
 # João Marcelo Zenaro
 
-Brasil
+Videira, Santa Catarina, Brasil
 | [jmz.dev.br](https://jmz.dev.br)
 @@PHONE_ITEM@@
 | [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
 | [LinkedIn](https://linkedin.com/in/joaozenaro)
 | [GitHub](https://github.com/joaozenaro)
 
+## Resumo Profissional
+
+Software Engineer com mais de 3 anos de experiência construindo e evoluindo sistemas críticos de negócio em C#/.NET nos domínios de ERP, e-commerce, pagamentos e setor público. Foco em desenvolvimento backend e integrações financeiras.
+
 ## Experiência
 
 **Bellosoft**
 : **Remoto**
 
-**_Desenvolvedor .NET_**
+**_Software Engineer_**
 : _Out 2023 - Presente_
 
-- Modernizei o sistema de gestão de produção da _Moran's Specialist Caterers_ (Irlanda) migrando uma implementação legada para um módulo moderno de ERP.
-- Reduzi o tempo de geração de rótulos alimentares em 75%, integrando ao ERP.
-- Conduzi a modernização de um serviço web da _Greyhound Racing Ireland_ SOAP/.NET Framework para REST/.NET 10.
-- Desenvolvi integrações ASP.NET Core com 5 plataformas de pagamento e contabilidade: Elavon, Stripe, PayPal, QuickBooks e Xero.
-- Integrei o ERP central com plataformas de e-commerce B2C, utilizando processamento assíncrono para sincronização de dados entre sistemas.
-- Automatizei a revisão de documentos hipotecários com IA e Hangfire.
-- Contribuí para pipelines de CI/CD no GitHub Actions na migração da equipe para infraestrutura baseada em containers.
+Software house 100% remota, liderada por seniores (10 pessoas), que entrega ERPs customizados, e-commerce e automação com IA para clientes no Reino Unido, na Irlanda e em outros países.
+
+- Modernizei o sistema de gestão de produção da Moran's Specialist Caterers, migrando uma implementação legada para um módulo de ERP moderno e reduzindo em 75% o tempo de geração de rótulos alimentares.
+- Unifiquei dados de pagamentos e contabilidade de cinco plataformas (Elavon, Stripe, PayPal, QuickBooks e Xero) em um único fluxo financeiro dentro do ERP, usando integrações em ASP.NET Core.
+- Modernizei um serviço web central da Greyhound Racing Ireland de SOAP/.NET Framework para REST/.NET 10, melhorando a performance para os consumidores da API e acelerando os ciclos de release.
+- Reconstruí a sincronização de dados entre ERP e e-commerce com processamento assíncrono, substituindo uma integração instável para que pedidos e estoque permaneçam sincronizados sem reconciliação manual.
+- Automatizei a revisão de documentos de hipoteca com processamento baseado em IA e jobs em segundo plano com Hangfire, substituindo um processo totalmente manual para que os corretores foquem nos casos sinalizados e agilizem a aprovação das solicitações.
+- Migrei os pipelines de CI/CD do Azure para infraestrutura de containers própria usando GitHub Actions, viabilizando deploys confiáveis várias vezes ao dia.
 
 **Inovea Tecnologia**
-: **Fraiburgo, SC**
+: **Fraiburgo, SC, Brasil**
 
-**_Desenvolvedor Web Júnior (.NET)_**
+**_Software Engineer_**
 : _Fev 2023 - Out 2023_
 
-- Contribuí para o GESCON, sistema de gestão de licitações e contratos públicos utilizado em 295 municípios catarinenses pelo CINCATARINA, onde atuei como liaison técnico presencial.
-- Desenvolvi uma plataforma interna de documentação em Markdown para centralização do conhecimento técnico.
-- Otimizei Stored Procedures, Views e Índices em cadeias de consultas SQL complexas.
+- Contribuí para o GESCON, sistema de gestão de licitações e contratos públicos que atende 295 municípios de Santa Catarina por meio do CINCATARINA, atuando como ponto de contato técnico presencial para levantar requisitos e feedback dos usuários.
+- Implementei novos fluxos administrativos com VB.NET, Telerik UI, Bootstrap 5 e jQuery, conectando múltiplas telas, operações de banco de dados e integrações do sistema.
+- Implementei documentação baseada em Markdown que centraliza orientações sobre os fluxos do sistema.
+- Otimizei Stored Procedures, Views e Índices em cadeias de consultas SQL complexas, melhorando performance.
 
-**Unifacvest**
-: **Lages, SC**
+**Experiências Anteriores**
+: **Videira, SC, Brasil**
 
-**_Desenvolvedor Web_**
-: _Fev 2022 - Jul 2022_
-
-- Desenvolvi um CMS personalizado sob supervisão acadêmica.
-
-**Speasy & Fisk**
-: **Videira, SC**
-
-**_Professor de Inglês (ESL)_**
+**_Professor de Inglês (ESL) e Intérprete/Tradutor Freelancer_**
 : _Fev 2020 - Jun 2023_
 
-- Lecionei inglês para adolescentes e adultos de diversos níveis de proficiência.
+- Lecionei inglês e atuei como intérprete em negociações comerciais internacionais.
 
 ## Formação
 
@@ -63,21 +61,10 @@ Universidade do Oeste de Santa Catarina
 Instituto Federal Catarinense
 : Videira, SC
 
-## Projetos
+## Idiomas
 
-**HeatSync (Monitor IoT de temperatura)**
-: [github.com/joaozenaro/heatsync](https://github.com/joaozenaro/heatsync)
-
-Desenvolvi um sistema de monitoramento IoT full-stack com Next.js e NestJS, utilizando arquitetura hexagonal e WebSockets para telemetria em tempo real. Hospedado no Render, Vercel e Supabase.
+Inglês: Avançado (C1, Michigan English Test) | Português: Nativo
 
 ## Habilidades
 
-**Linguagens:** C#, SQL, TypeScript, JavaScript, Python, VB.NET
-
-**Backend & Dados:** ASP.NET Core, .NET Framework, Entity Framework Core, LINQ, SQL Server, PostgreSQL, Redis, MongoDB, REST/SOAP APIs, Hangfire, GraphQL
-
-**Frontend:** Vue.js, React.js, Tailwind CSS, Telerik, Bootstrap, jQuery, SASS
-
-**Ferramentas & DevOps:** Git, Docker, GitHub Actions, CI/CD, Testcontainers, Azure DevOps, TFS/TFVC, Scrum, Agile
-
-**Idiomas:** Inglês (C1 Michigan English Test), Português (nativo)
+C# | .NET | ASP.NET Core | VB.NET | EF Core | SQL Server | PostgreSQL | REST | SOAP | Hangfire | GitHub Actions | CI/CD | Docker | Azure DevOps | Git | Vue.js | React | TypeScript | JavaScript | Python | Telerik UI | jQuery | Tailwind CSS
