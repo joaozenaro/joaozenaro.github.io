@@ -1,11 +1,9 @@
 # João Marcelo Zenaro
 
-Videira, Santa Catarina, Brasil
-| [jmz.dev.br](https://jmz.dev.br)
-@@PHONE_ITEM@@
-| [joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com)
-| [LinkedIn](https://linkedin.com/in/joaozenaro)
-| [GitHub](https://github.com/joaozenaro)
+Software Engineer | C# | .NET | ASP.NET Core | SQL Server | Docker
+: Videira, Brasil
+
+[joaomarcelo661@gmail.com](mailto:joaomarcelo661@gmail.com) @@PHONE_ITEM@@ | [jmz.dev.br](https://jmz.dev.br) | [linkedin.com/in/joaozenaro](https://linkedin.com/in/joaozenaro) | [github.com/joaozenaro](https://github.com/joaozenaro)
 
 ## Resumo Profissional
 
@@ -19,14 +17,15 @@ Software Engineer com mais de 3 anos de experiência construindo e evoluindo sis
 **_Software Engineer_**
 : _Out 2023 - Presente_
 
-Software house 100% remota, liderada por seniores (10 pessoas), que entrega ERPs customizados, e-commerce e automação com IA para clientes no Reino Unido, na Irlanda e em outros países.
+_Software house remota e sênior (10 pessoas): ERPs, e-commerce e automação com IA para clientes do Reino Unido e Irlanda._
 
 - Modernizei o sistema de gestão de produção da Moran's Specialist Caterers, migrando uma implementação legada para um módulo de ERP moderno e reduzindo em 75% o tempo de geração de rótulos alimentares.
+- Migrei um serviço web central da Greyhound Racing Ireland de SOAP/.NET Framework para REST/.NET 10, substituindo uma stored procedure legada por consultas diretas, enriquecimento ao vivo via API da DataTote para dados defasados e cache em camadas (curta duração para corridas recentes, longa para buscas históricas), reduzindo as buscas mais lentas de 30s+ para ~10s e as buscas repetidas para ~200ms.
 - Unifiquei dados de pagamentos e contabilidade de cinco plataformas (Elavon, Stripe, PayPal, QuickBooks e Xero) em um único fluxo financeiro dentro do ERP, usando integrações em ASP.NET Core.
-- Modernizei um serviço web central da Greyhound Racing Ireland de SOAP/.NET Framework para REST/.NET 10, melhorando a performance para os consumidores da API e acelerando os ciclos de release.
-- Reconstruí a sincronização de dados entre ERP e e-commerce com processamento assíncrono, substituindo uma integração instável para que pedidos e estoque permaneçam sincronizados sem reconciliação manual.
-- Automatizei a revisão de documentos de hipoteca com processamento baseado em IA e jobs em segundo plano com Hangfire, substituindo um processo totalmente manual para que os corretores foquem nos casos sinalizados e agilizem a aprovação das solicitações.
-- Migrei os pipelines de CI/CD do Azure para infraestrutura de containers própria usando GitHub Actions, viabilizando deploys confiáveis várias vezes ao dia.
+- Reconstruí a sincronização de dados entre ERP e e-commerce com processamento assíncrono, substituindo uma integração instável para que pedidos e estoque permaneçam alinhados sem reconciliação manual.
+- Automatizei a revisão de documentos de hipoteca com processamento por IA e jobs em segundo plano com Hangfire, substituindo um processo totalmente manual para que os corretores foquem nos casos sinalizados e agilizem a aprovação.
+
+**Habilidades:** C#, .NET 10, ASP.NET Core, REST, SOAP, SQL Server, Integração com APIs de Terceiros, Hangfire, Docker, GitHub Actions
 
 **Inovea Tecnologia**
 : **Fraiburgo, SC, Brasil**
@@ -34,15 +33,18 @@ Software house 100% remota, liderada por seniores (10 pessoas), que entrega ERPs
 **_Software Engineer_**
 : _Fev 2023 - Out 2023_
 
-- Contribuí para o GESCON, sistema de gestão de licitações e contratos públicos que atende 295 municípios de Santa Catarina por meio do CINCATARINA, atuando como ponto de contato técnico presencial para levantar requisitos e feedback dos usuários.
-- Implementei novos fluxos administrativos com VB.NET, Telerik UI, Bootstrap 5 e jQuery, conectando múltiplas telas, operações de banco de dados e integrações do sistema.
-- Implementei documentação baseada em Markdown que centraliza orientações sobre os fluxos do sistema.
-- Otimizei Stored Procedures, Views e Índices em cadeias de consultas SQL complexas, melhorando performance.
+_GESCON, sistema de licitações e contratos públicos que atende 295 municípios de Santa Catarina._
 
-**Experiências Anteriores**
+- Entreguei fluxos administrativos em VB.NET e Telerik UI, atuando como ponto de contato técnico presencial com os usuários do CINCATARINA para levantar requisitos e feedback.
+- Otimizei Stored Procedures, Views e Índices em cadeias de consultas SQL complexas, corrigindo telas lentas e travando para a equipe do CINCATARINA que usa o sistema diariamente.
+- Criei documentação em Markdown que centraliza orientações sobre os fluxos do sistema para os usuários.
+
+**Habilidades:** VB.NET, SQL Server, Telerik UI, Bootstrap 5, jQuery
+
+**Fisk, Speasy Idiomas e Autônomo**
 : **Videira, SC, Brasil**
 
-**_Professor de Inglês (ESL) e Intérprete/Tradutor Freelancer_**
+**_Professor de Inglês (ESL) e Intérprete/Tradutor_**
 : _Fev 2020 - Jun 2023_
 
 - Lecionei inglês e atuei como intérprete em negociações comerciais internacionais.
@@ -63,8 +65,11 @@ Instituto Federal Catarinense
 
 ## Idiomas
 
-Inglês: Avançado (C1, Michigan English Test) | Português: Nativo
+Inglês: Proficiência Profissional Plena (C1, Michigan English Test) | Português: Nativo
 
 ## Habilidades
 
-C# | .NET | ASP.NET Core | VB.NET | EF Core | SQL Server | PostgreSQL | REST | SOAP | Hangfire | GitHub Actions | CI/CD | Docker | Azure DevOps | Git | Vue.js | React | TypeScript | JavaScript | Python | Telerik UI | jQuery | Tailwind CSS
+**Linguagens:** C#, SQL, VB.NET, TypeScript, JavaScript, Python\
+**Backend e Dados:** .NET, ASP.NET Core, Entity Framework Core, SQL Server, PostgreSQL, Hangfire, REST, SOAP\
+**Cloud e DevOps:** Docker, GitHub Actions, CI/CD, Azure DevOps, Git\
+**Frontend:** Vue.js, React, Telerik UI, jQuery, Bootstrap, Tailwind CSS
